@@ -1,4 +1,5 @@
 import 'package:divar_aviz/config/theme_colors.dart';
+import 'package:divar_aviz/presentation/pages/add_aviz_page.dart';
 import 'package:divar_aviz/presentation/pages/advertisements_page.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const AdvertisementsPage(),
+      body: IndexedStack(
+        index: _selectedBottomNavigationItem,
+        children: const [
+          AdvertisementsPage(),
+          AddAvizPage(),
+          AdvertisementsPage(),
+          AdvertisementsPage(),
+        ],
+      ),
       // navigation bar
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xffF9FAFB),

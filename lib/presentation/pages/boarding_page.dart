@@ -4,8 +4,8 @@ import 'package:divar_aviz/presentation/widgets/small_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingScreen extends StatelessWidget {
-  const OnBoardingScreen({
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage({
     super.key,
   });
 

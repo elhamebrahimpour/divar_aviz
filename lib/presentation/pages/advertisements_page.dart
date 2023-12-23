@@ -1,4 +1,5 @@
 import 'package:divar_aviz/config/theme_colors.dart';
+import 'package:divar_aviz/data/model/aviz.dart';
 import 'package:flutter/material.dart';
 
 class AdvertisementsPage extends StatefulWidget {
@@ -9,6 +10,33 @@ class AdvertisementsPage extends StatefulWidget {
 }
 
 class _AdvertisementsPageState extends State<AdvertisementsPage> {
+  final List<Aviz> testList = [
+    Aviz(
+      title: 'ویلا ۵۰۰ متری زیر قیمت',
+      descryption: 'ویو عالی، سند تک برگ، سال ساخت ۱۴۰۲، تحویل فوری',
+      image: 'asset0',
+      price: '۲۵٬۶۸۳٬۰۰۰٬۰۰۰',
+    ),
+    Aviz(
+      title: 'واحد ۵ خواب متراژ ۲۵۰',
+      descryption: 'دکور شیک و مینیمال، موقعیت عالی، ۳ طبقه، ۳ واحد',
+      image: 'asset1',
+      price: '۸٬۲۰۰٬۰۰۰٬۰۰۰',
+    ),
+    Aviz(
+      title: 'واحد دوبلکس فول امکانات',
+      descryption: 'سال ساخت ۱۳۹۸، سند تک برگ، دوبلکس تجهیزات کامل',
+      image: 'asset2',
+      price: '۸٬۲۰۰٬۰۰۰٬۰۰۰',
+    ),
+    Aviz(
+      title: 'پنت هاوس ۳۰۰ متری ناهارخوران',
+      descryption: 'تحویل فوری، ویو عالی به همراه امکانات فول',
+      image: 'asset3',
+      price: '۵٬۹۰۰٬۰۰۰٬۰۰۰',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -73,14 +101,16 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
             ),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: 270,
+                height: 286,
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 6,
+                    itemCount: testList.length,
                     itemBuilder: (context, index) {
-                      return const HotestAvizItem();
+                      return HotestAvizItem(
+                        aviz: testList[index],
+                      );
                     },
                   ),
                 ),
@@ -114,9 +144,11 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  return const RecentAvizItem();
+                  return RecentAvizItem(
+                    aviz: testList[index],
+                  );
                 },
-                childCount: 6,
+                childCount: testList.length,
               ),
             )
           ],
@@ -127,7 +159,9 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
 }
 
 class RecentAvizItem extends StatelessWidget {
+  final Aviz aviz;
   const RecentAvizItem({
+    required this.aviz,
     super.key,
   });
 
@@ -159,7 +193,7 @@ class RecentAvizItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
             ),
             child: Image.asset(
-              'assets/images/asset0.png',
+              'assets/images/${aviz.image}.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -171,14 +205,14 @@ class RecentAvizItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'ویلا ۵۰۰ متری زیر قیمت',
+                  aviz.title,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 Text(
-                  'ویو عالی، سند تک برگ، سال ساخت ۱۴۰۲، تحویل فوری',
+                  aviz.descryption,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: ThemeColors.textGreyColor,
                       ),
@@ -197,7 +231,7 @@ class RecentAvizItem extends StatelessWidget {
                         borderRadius: BorderRadius.circular(3),
                       ),
                       child: Text(
-                        '۲۵٬۶۸۳٬۰۰۰٬۰۰۰',
+                        aviz.price,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -220,15 +254,16 @@ class RecentAvizItem extends StatelessWidget {
 }
 
 class HotestAvizItem extends StatelessWidget {
+  final Aviz aviz;
   const HotestAvizItem({
+    required this.aviz,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 224,
-      height: 267,
+      width: 248,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
@@ -254,7 +289,10 @@ class HotestAvizItem extends StatelessWidget {
               height: 112,
               width: 192,
               color: Colors.transparent,
-              child: Image.asset('assets/images/asset0.png'),
+              child: Image.asset(
+                'assets/images/${aviz.image}.png',
+                fit: BoxFit.fitWidth,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -262,14 +300,14 @@ class HotestAvizItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'ویلا ۵۰۰ متری زیر قیمت',
+                    aviz.title,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    'ویو عالی، سند تک برگ، سال ساخت ۱۴۰۲، تحویل فوری',
+                    aviz.descryption,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           color: ThemeColors.textGreyColor,
                         ),
@@ -300,7 +338,7 @@ class HotestAvizItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(3),
                   ),
                   child: Text(
-                    '۲۵٬۶۸۳٬۰۰۰٬۰۰۰',
+                    aviz.price,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
