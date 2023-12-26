@@ -1,6 +1,8 @@
 import 'package:divar_aviz/config/theme_colors.dart';
-import 'package:divar_aviz/presentation/pages/add_aviz_page.dart';
+import 'package:divar_aviz/presentation/pages/category_page.dart';
 import 'package:divar_aviz/presentation/pages/advertisements_page.dart';
+import 'package:divar_aviz/presentation/pages/profile_page.dart';
+import 'package:divar_aviz/presentation/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,9 +23,9 @@ class _HomePageState extends State<HomePage> {
       body: IndexedStack(
         index: _selectedBottomNavigationItem,
         children: const [
-          AdvertisementsPage(),
-          AddAvizPage(),
-          AdvertisementsPage(),
+          UserProfilePage(),
+          CategoryPage(),
+          AvizSearchPage(),
           AdvertisementsPage(),
         ],
       ),
