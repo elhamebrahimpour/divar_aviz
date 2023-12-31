@@ -1,5 +1,5 @@
 import 'package:divar_aviz/config/theme_colors.dart';
-import 'package:divar_aviz/presentation/pages/category_page.dart';
+import 'package:divar_aviz/presentation/pages/add_aviz_page.dart';
 import 'package:divar_aviz/presentation/pages/advertisements_page.dart';
 import 'package:divar_aviz/presentation/pages/profile_page.dart';
 import 'package:divar_aviz/presentation/pages/search_page.dart';
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         index: _selectedBottomNavigationItem,
         children: const [
           UserProfilePage(),
-          CategoryPage(),
+          AddAvizPage(),
           AvizSearchPage(),
           AdvertisementsPage(),
         ],
