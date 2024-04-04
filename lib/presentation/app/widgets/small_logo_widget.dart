@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SmallLogo extends StatelessWidget {
-  const SmallLogo({
+class SmallLogoWidget extends StatelessWidget {
+  const SmallLogoWidget({
     super.key,
     required this.textTheme,
   });

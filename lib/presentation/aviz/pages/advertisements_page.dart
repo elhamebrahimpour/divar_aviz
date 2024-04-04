@@ -1,6 +1,7 @@
 import 'package:divar_aviz/domain/utils/ext_context.dart';
 import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:divar_aviz/data/model/aviz.dart';
+import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:divar_aviz/presentation/aviz/pages/see_all_aviz_page.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,10 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: _buildAppBar(textTheme),
+      appBar: CustomAppBar(
+        textTheme: textTheme,
+        title: 'آویز',
+      ),
       body: SafeArea(
         child: _buildBody(context),
       ),
@@ -60,7 +64,7 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
         _buildHotestTitle(context),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 286,
+            height: 290,
             child: Directionality(
               textDirection: TextDirection.rtl,
               child: ListView.builder(
@@ -149,40 +153,6 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
             Text(
               'آویزهای اخیر',
               style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  AppBar _buildAppBar(TextTheme textTheme) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      title: Container(
-        height: 32,
-        padding: const EdgeInsets.only(
-          left: 4,
-          right: 4,
-          top: 4,
-          bottom: 8,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'آویز',
-              style: textTheme.bodySmall!.copyWith(fontSize: 16),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Image.asset(
-              'assets/images/small_logo_colored.png',
-              height: 26,
-              width: 26,
             ),
           ],
         ),

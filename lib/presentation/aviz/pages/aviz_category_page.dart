@@ -21,7 +21,10 @@ class _CategoryPageState extends State<CategoryPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        leading: Image.asset('assets/images/icon_close.png'),
+        leading: GestureDetector(
+          onTap: () {},
+          child: Image.asset('assets/images/icon_close.png'),
+        ),
         title: Text(
           'دسته بندی آویز',
           style: textTheme.bodySmall!.copyWith(fontSize: 16),

@@ -1,3 +1,4 @@
+import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/model/aviz.dart';
@@ -31,7 +32,10 @@ class _SeeAllAvizPageState extends State<SeeAllAvizPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: _buildAppBar(textTheme),
+      appBar: CustomAppBar(
+        textTheme: textTheme,
+        title: 'همه آویزها',
+      ),
       body: SafeArea(
         child: _buildBody(context),
       ),
@@ -55,40 +59,6 @@ class _SeeAllAvizPageState extends State<SeeAllAvizPage> {
           ),
         )
       ],
-    );
-  }
-
-  AppBar _buildAppBar(TextTheme textTheme) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      title: Container(
-        height: 32,
-        padding: const EdgeInsets.only(
-          left: 4,
-          right: 4,
-          top: 4,
-          bottom: 8,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'همه آویزها',
-              style: textTheme.bodySmall!.copyWith(fontSize: 16),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Image.asset(
-              'assets/images/small_logo_colored.png',
-              height: 26,
-              width: 26,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -13,36 +13,35 @@ class VerticalAvizItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 248,
+      width: 224,
+      margin: const EdgeInsets.only(
+        left: 16,
+        right: 16,
+        top: 8,
+        bottom: 18,
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
+        boxShadow: [
+          BoxShadow(
+            color: ColorBase.textGreyColor.withOpacity(0.5),
+            blurRadius: 20,
+            spreadRadius: -10,
+            offset: const Offset(0.0, 8),
+          )
+        ],
       ),
-      child: Container(
-        height: 235,
-        width: 192,
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: ColorBase.textGreyColor.withOpacity(0.5),
-              blurRadius: 20,
-              spreadRadius: -10,
-              offset: const Offset(0.0, 8),
-            )
-          ],
-        ),
-        child: Column(
-          children: [
-            _buildImage(),
-            _buildTitle(context),
-            const SizedBox(
-              height: 8,
-            ),
-            _buildPrice(context)
-          ],
-        ),
+      child: Column(
+        children: [
+          _buildImage(),
+          _buildTitle(context),
+          const Spacer(),
+          _buildPrice(context),
+          const SizedBox(
+            height: 12,
+          ),
+        ],
       ),
     );
   }
@@ -70,7 +69,7 @@ class VerticalAvizItem extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
-            height: 5,
+            height: 6,
           ),
           Text(
             aviz.descryption,

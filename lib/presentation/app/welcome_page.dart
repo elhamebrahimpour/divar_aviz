@@ -28,7 +28,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SmallLogo(textTheme: textTheme),
+                    SmallLogoWidget(textTheme: textTheme),
                     const SizedBox(
                       width: 6,
                     ),

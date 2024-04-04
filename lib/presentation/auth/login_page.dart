@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SmallLogo(textTheme: textTheme),
+                    SmallLogoWidget(textTheme: textTheme),
                     const SizedBox(
                       width: 8,
                     ),

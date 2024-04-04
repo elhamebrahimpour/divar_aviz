@@ -14,8 +14,7 @@ class HorizontalAvizItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 139,
-      width: 343,
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
         color: Colors.white,

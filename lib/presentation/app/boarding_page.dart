@@ -44,7 +44,7 @@ class OnBoardingPage extends StatelessWidget {
                 const SizedBox(
                   width: 12,
                 ),
-                SmallLogo(textTheme: textTheme),
+                SmallLogoWidget(textTheme: textTheme),
                 const SizedBox(
                   width: 12,
                 ),
