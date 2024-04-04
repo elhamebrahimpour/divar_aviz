@@ -1,4 +1,4 @@
-import 'package:divar_aviz/config/theme_colors.dart';
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -91,7 +91,7 @@ class _CategoryPageViewState extends State<CategoryPageView> {
           ),
           AnimatedContainer(
             duration: const Duration(milliseconds: 500),
-            color: ThemeColors.mainColor,
+            color: ColorBase.mainColor,
             height: 4,
             width: widget.animatedContainerWidth,
           ),

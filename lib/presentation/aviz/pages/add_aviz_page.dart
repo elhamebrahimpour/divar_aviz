@@ -1,4 +1,4 @@
-import 'package:divar_aviz/config/theme_colors.dart';
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +53,7 @@ class _AddAvizPageState extends State<AddAvizPage> {
             ),
             AnimatedContainer(
               duration: const Duration(milliseconds: 500),
-              color: ThemeColors.mainColor,
+              color: ColorBase.mainColor,
               height: 4,
               width: 38 * 4,
             ),
@@ -94,7 +94,7 @@ class _AddAvizPageState extends State<AddAvizPage> {
               padding: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: ThemeColors.mainColor,
+                color: ColorBase.mainColor,
               ),
               child: Center(
                 child: Text(
@@ -181,7 +181,7 @@ class AvizFacilitiesSelection extends StatelessWidget {
             scale: 0.6,
             child: CupertinoSwitch(
               value: true,
-              activeColor: ThemeColors.mainColor,
+              activeColor: ColorBase.mainColor,
               onChanged: (value) => onValueChanged?.call(value),
             ),
           ),
@@ -273,7 +273,7 @@ class AvizPropertiesSelection extends StatelessWidget {
         Text(
           title,
           style: textTheme.bodySmall!.copyWith(
-            color: ThemeColors.textGreyColor,
+            color: ColorBase.textGreyColor,
           ),
         ),
         const SizedBox(
@@ -299,18 +299,18 @@ class AvizPropertiesSelection extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.arrow_drop_down,
-                    color: ThemeColors.mainColor,
+                    color: ColorBase.mainColor,
                   ),
                   Icon(
                     Icons.arrow_drop_up,
-                    color: ThemeColors.mainColor,
+                    color: ColorBase.mainColor,
                   )
                 ],
               ),
               Text(
                 '$number',
                 style: textTheme.bodySmall!.copyWith(
-                  color: ThemeColors.textGreyColor,
+                  color: ColorBase.textGreyColor,
                   fontSize: 16,
                 ),
               ),
@@ -372,7 +372,7 @@ class _CategoryDropDownMenuState extends State<CategoryDropDownMenu> {
                   item,
                   textAlign: TextAlign.end,
                   style: textTheme.bodySmall!.copyWith(
-                    color: ThemeColors.textBlackColor,
+                    color: ColorBase.textBlackColor,
                     fontSize: 16,
                   ),
                 ),
@@ -431,7 +431,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                   Text(
                     'محدوده ملک',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ThemeColors.textGreyColor,
+                      color: ColorBase.textGreyColor,
                     ),
                   ),
                   const SizedBox(
@@ -453,7 +453,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                       child: Text(
                         'خیابان صیاد شیرازی',
                         style: textTheme.bodySmall!.copyWith(
-                          color: ThemeColors.textGreyColor,
+                          color: ColorBase.textGreyColor,
                           fontSize: 16,
                         ),
                       ),
@@ -467,7 +467,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                   Text(
                     'دسته بندی',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ThemeColors.textGreyColor,
+                      color: ColorBase.textGreyColor,
                     ),
                   ),
                   const SizedBox(

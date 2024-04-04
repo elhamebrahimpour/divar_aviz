@@ -1,6 +1,5 @@
-import 'package:divar_aviz/config/theme_colors.dart';
-import 'package:divar_aviz/presentation/widgets/home_indicator.dart';
-import 'package:divar_aviz/presentation/widgets/otp_code_input.dart';
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
+import 'package:divar_aviz/presentation/auth/widgets/otp_code_input.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterVerificationPage extends StatefulWidget {
@@ -41,7 +40,7 @@ class _UserRegisterVerificationPageState
                 child: Text(
                   'کد ثبت نام پیامک شده را وارد کنید',
                   style: textTheme.bodySmall!.copyWith(
-                    color: ThemeColors.textGreyColor,
+                    color: ColorBase.textGreyColor,
                   ),
                 ),
               ),
@@ -84,7 +83,7 @@ class _UserRegisterVerificationPageState
                   Text(
                     '00:00',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ThemeColors.textGreyColor,
+                      color: ColorBase.textGreyColor,
                     ),
                   ),
                 ],
@@ -97,7 +96,7 @@ class _UserRegisterVerificationPageState
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: ThemeColors.mainColor,
+                  color: ColorBase.mainColor,
                 ),
                 child: Center(
                   child: Text(
@@ -112,7 +111,6 @@ class _UserRegisterVerificationPageState
               const SizedBox(
                 height: 22,
               ),
-              const HomeBottomIndicator(),
             ],
           ),
         ),
@@ -120,4 +118,3 @@ class _UserRegisterVerificationPageState
     );
   }
 }
-

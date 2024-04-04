@@ -1,6 +1,5 @@
-import 'package:divar_aviz/config/theme_colors.dart';
-import 'package:divar_aviz/presentation/widgets/home_indicator.dart';
-import 'package:divar_aviz/presentation/widgets/small_logo_widget.dart';
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
+import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -64,7 +63,7 @@ class OnBoardingPage extends StatelessWidget {
                 'در آویز ملک خود را برای فروش،اجاره و رهن آگهی کنید و یا اگر دنبال ملک با مشخصات دلخواه خود هستید آویز ها را ببینید',
                 textAlign: TextAlign.center,
                 style: textTheme.bodySmall!.copyWith(
-                  color: ThemeColors.textGreyColor,
+                  color: ColorBase.textGreyColor,
                   letterSpacing: 1,
                   height: 1.5,
                 ),
@@ -76,7 +75,7 @@ class OnBoardingPage extends StatelessWidget {
               count: 3,
               effect: const ExpandingDotsEffect(
                 dotColor: Color(0xffEAECF0),
-                activeDotColor: ThemeColors.mainColor,
+                activeDotColor: ColorBase.mainColor,
                 dotHeight: 6,
                 dotWidth: 6,
                 expansionFactor: 3,
@@ -89,7 +88,6 @@ class OnBoardingPage extends StatelessWidget {
             const SizedBox(
               height: 22,
             ),
-            const HomeBottomIndicator(),
           ],
         ),
       ),
@@ -113,7 +111,7 @@ class LoginRegisterButton extends StatelessWidget {
           child: const Text(
             'ورود',
             style: TextStyle(
-              color: ThemeColors.mainColor,
+              color: ColorBase.mainColor,
               fontSize: 16,
               fontFamily: 'SM',
             ),

@@ -1,6 +1,5 @@
-import 'package:divar_aviz/config/app_theme.dart';
-import 'package:divar_aviz/presentation/pages/home_page.dart';
-import 'package:divar_aviz/presentation/widgets/home_indicator.dart';
+import 'package:divar_aviz/presentation/app/resources/app_theme.dart';
+import 'package:divar_aviz/presentation/app/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,14 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData,
-      home: const Column(
-        children: [
-          Expanded(
-            child: HomePage(),
-          ),
-          HomeBottomIndicator(),
-        ],
-      ),
+      home: const HomePage(),
     );
   }
 }

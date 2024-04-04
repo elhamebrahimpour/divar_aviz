@@ -1,16 +1,15 @@
-import 'package:divar_aviz/config/theme_colors.dart';
-import 'package:divar_aviz/presentation/widgets/home_indicator.dart';
-import 'package:divar_aviz/presentation/widgets/small_logo_widget.dart';
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
+import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -31,10 +30,10 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     SmallLogo(textTheme: textTheme),
                     const SizedBox(
-                      width: 8,
+                      width: 6,
                     ),
                     Text(
-                      'ورود به',
+                      'خوش اومدی به آویز',
                       style: textTheme.bodyMedium,
                     ),
                   ],
@@ -45,21 +44,30 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Text(
-                    'خوشحالیم که مجددا آویز رو برای آگهی انتخاب کردی!',
-                    style: textTheme.bodySmall!.copyWith(
-                      color: ThemeColors.textGreyColor,
-                    ),
-                    textAlign: TextAlign.start,
+                child: Text(
+                  'این فوق العادست که آویزو برای آگهی هات انتخاب کردی!',
+                  style: textTheme.bodySmall!.copyWith(
+                    color: ColorBase.textGreyColor,
                   ),
+                  textDirection: TextDirection.rtl,
                 ),
               ),
               const SizedBox(
-                height: 42,
+                height: 22,
               ),
-              CredentialTextField(textTheme: textTheme),
+              UserCredentialTextField(
+                textTheme: textTheme,
+                hintText: 'نام و نام خانوادگی',
+                textInputType: TextInputType.name,
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              UserCredentialTextField(
+                textTheme: textTheme,
+                hintText: 'شماره موبایل',
+                textInputType: TextInputType.phone,
+              ),
               const Spacer(),
               NextStepButton(textTheme: textTheme),
               const SizedBox(
@@ -69,16 +77,16 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'ثبت نام',
+                    'ورود',
                     style: textTheme.bodySmall!.copyWith(fontFamily: 'SB'),
                   ),
                   const SizedBox(
                     width: 6,
                   ),
                   Text(
-                    'تاحالا ثبت نام نکردی؟  ',
+                    'قبلا ثبت نام نکردی؟',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ThemeColors.textGreyColor,
+                      color: ColorBase.textGreyColor,
                     ),
                   ),
                 ],
@@ -86,43 +94,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 22,
               ),
-              const HomeBottomIndicator(),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CredentialTextField extends StatelessWidget {
-  const CredentialTextField({
-    super.key,
-    required this.textTheme,
-  });
-
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: const Color(0xffF9FAFB),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: TextField(
-        keyboardType: TextInputType.phone,
-        textAlign: TextAlign.end,
-        cursorColor: ThemeColors.mainColor,
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: 'شماره موبایل',
-          hintStyle: textTheme.bodySmall!.copyWith(
-            fontSize: 16,
-            color: const Color(0xffD0D5DD),
           ),
         ),
       ),
@@ -147,7 +119,7 @@ class NextStepButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: ThemeColors.mainColor,
+        color: ColorBase.mainColor,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -164,6 +136,45 @@ class NextStepButton extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class UserCredentialTextField extends StatelessWidget {
+  const UserCredentialTextField({
+    super.key,
+    required this.textTheme,
+    required this.hintText,
+    required this.textInputType,
+  });
+
+  final TextTheme textTheme;
+  final String hintText;
+  final TextInputType textInputType;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        color: const Color(0xffF9FAFB),
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: TextField(
+        keyboardType: textInputType,
+        textAlign: TextAlign.end,
+        cursorColor: ColorBase.mainColor,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: hintText,
+          hintStyle: textTheme.bodySmall!.copyWith(
+            fontSize: 16,
+            color: const Color(0xffD0D5DD),
+          ),
+        ),
       ),
     );
   }
