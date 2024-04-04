@@ -1,3 +1,5 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
+import 'package:divar_aviz/presentation/aviz/pages/aviz_item_detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/model/aviz.dart';
@@ -12,52 +14,59 @@ class HorizontalAvizItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 139,
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
-        boxShadow: [
-          BoxShadow(
-            color: ColorBase.textGreyColor.withOpacity(0.5),
-            blurRadius: 20,
-            spreadRadius: -10,
-            offset: const Offset(0.0, 8),
-          )
-        ],
+    return GestureDetector(
+      onTap: () => context.pushNavigator(
+        AvizItemDetailPage(
+          aviz: aviz,
+        ),
       ),
-      child: Row(
-        children: [
-          _buildImage(),
-          const SizedBox(
-            width: 8,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  aviz.title,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  aviz.descryption,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        color: ColorBase.textGreyColor,
-                      ),
-                  textAlign: TextAlign.end,
-                ),
-                const Spacer(),
-                _buildPrice(context),
-              ],
+      child: Container(
+        height: 139,
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: ColorBase.textGreyColor.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: -10,
+              offset: const Offset(0.0, 8),
+            )
+          ],
+        ),
+        child: Row(
+          children: [
+            _buildImage(),
+            const SizedBox(
+              width: 8,
             ),
-          )
-        ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    aviz.title,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    aviz.descryption,
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: ColorBase.textGreyColor,
+                        ),
+                    textAlign: TextAlign.end,
+                  ),
+                  const Spacer(),
+                  _buildPrice(context),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

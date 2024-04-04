@@ -1,0 +1,209 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../../app/resources/theme_colors.dart';
+import 'image_selection_view.dart';
+
+class LocateSelectionView extends StatefulWidget {
+  const LocateSelectionView({
+    super.key,
+  });
+
+  @override
+  State<LocateSelectionView> createState() => _LocateSelectionViewState();
+}
+
+class _LocateSelectionViewState extends State<LocateSelectionView> {
+  bool isLocationShowed = false;
+  bool isImageView = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return isImageView
+        ? const ImageSelectionView()
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 500),
+                color: ColorBase.mainColor,
+                height: 4,
+                width: 262,
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'موقعیت مکانی',
+                      style: textTheme.bodyMedium,
+                    ),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Image.asset('assets/images/icon_map.png'),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'بعد انتخاب محل دقیق روی نقشه میتوانید نمایش آن را فعال یا غیر فعال کید تا حریم خصوصی شما خفظ شود.',
+                  textAlign: TextAlign.start,
+                  textDirection: TextDirection.rtl,
+                  style: textTheme.bodySmall!
+                      .copyWith(color: ColorBase.textGreyColor, height: 1.7),
+                ),
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              MapWidget(textTheme: textTheme),
+              const SizedBox(
+                height: 22,
+              ),
+              _buildSwitchItem(textTheme),
+              const Spacer(),
+              // next button
+              _buildNextButton(textTheme),
+              const SizedBox(
+                height: 22,
+              ),
+            ],
+          );
+  }
+
+  GestureDetector _buildSwitchItem(TextTheme textTheme) {
+    return GestureDetector(
+      onTap: () => setState(() {
+        isLocationShowed = !isLocationShowed;
+      }),
+      child: Container(
+        height: 55,
+        width: 363,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.only(right: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(
+            width: 1,
+            color: const Color(0xffF2F4F7),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Transform.scale(
+              scale: 0.6,
+              child: CupertinoSwitch(
+                value: isLocationShowed ? true : false,
+                activeColor: ColorBase.mainColor,
+                onChanged: (value) {},
+              ),
+            ),
+            Text(
+              'موقعیت دقیق نقشه نمایش داده شود؟',
+              style: textTheme.bodyMedium!.copyWith(fontFamily: 'SM'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _buildNextButton(TextTheme textTheme) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isImageView = true;
+        });
+      },
+      child: Container(
+        height: 48,
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          color: ColorBase.mainColor,
+        ),
+        child: Center(
+          child: Text(
+            'بعدی',
+            style: textTheme.bodySmall!.copyWith(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MapWidget extends StatelessWidget {
+  final TextTheme textTheme;
+
+  const MapWidget({
+    super.key,
+    required this.textTheme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            height: 144,
+            width: 343,
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+          Container(
+            height: 46,
+            width: 185,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            decoration: BoxDecoration(
+              color: ColorBase.mainColor,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Row(
+              children: [
+                Image.asset('assets/images/icon_location.png'),
+                const SizedBox(
+                  width: 6,
+                ),
+                Expanded(
+                  child: Text(
+                    'تبریز، بازار، بازار برق تبریز، طبقه همکف',
+                    textAlign: TextAlign.start,
+                    textDirection: TextDirection.rtl,
+                    style: textTheme.bodyMedium!.copyWith(
+                      color: Colors.white,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

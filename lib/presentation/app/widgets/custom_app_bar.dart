@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TextTheme textTheme;
   final String title;
+  final bool showBackArrow;
 
   const CustomAppBar({
     super.key,
     required this.textTheme,
     required this.title,
+    this.showBackArrow = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
+      automaticallyImplyLeading: showBackArrow,
       elevation: 0,
       centerTitle: true,
       title: Container(

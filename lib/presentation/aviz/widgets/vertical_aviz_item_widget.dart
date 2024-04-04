@@ -1,7 +1,9 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/model/aviz.dart';
 import '../../app/resources/theme_colors.dart';
+import '../pages/aviz_item_detail_page.dart';
 
 class VerticalAvizItem extends StatelessWidget {
   final Aviz aviz;
@@ -12,36 +14,43 @@ class VerticalAvizItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 224,
-      margin: const EdgeInsets.only(
-        left: 16,
-        right: 16,
-        top: 8,
-        bottom: 18,
+    return GestureDetector(
+      onTap: () => context.pushNavigator(
+        AvizItemDetailPage(
+          aviz: aviz,
+        ),
       ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
-        boxShadow: [
-          BoxShadow(
-            color: ColorBase.textGreyColor.withOpacity(0.5),
-            blurRadius: 20,
-            spreadRadius: -10,
-            offset: const Offset(0.0, 8),
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          _buildImage(),
-          _buildTitle(context),
-          const Spacer(),
-          _buildPrice(context),
-          const SizedBox(
-            height: 12,
-          ),
-        ],
+      child: Container(
+        width: 224,
+        margin: const EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 8,
+          bottom: 18,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              color: ColorBase.textGreyColor.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: -10,
+              offset: const Offset(0.0, 8),
+            )
+          ],
+        ),
+        child: Column(
+          children: [
+            _buildImage(),
+            _buildTitle(context),
+            const Spacer(),
+            _buildPrice(context),
+            const SizedBox(
+              height: 12,
+            ),
+          ],
+        ),
       ),
     );
   }
