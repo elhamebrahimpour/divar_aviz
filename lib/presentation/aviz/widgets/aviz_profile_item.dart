@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class AvizProfileItem extends StatelessWidget {
   final String title;
-  final String icon;
+  final String? icon;
   final TextTheme textTheme;
   final Function? onItemTapped;
 
   const AvizProfileItem({
     super.key,
     required this.title,
-    required this.icon,
+    this.icon,
     required this.textTheme,
     this.onItemTapped,
   });
@@ -41,7 +41,7 @@ class AvizProfileItem extends StatelessWidget {
             const SizedBox(
               width: 16,
             ),
-            Image.asset('assets/images/$icon.png'),
+            if (icon != null) Image.asset('assets/images/$icon.png'),
           ],
         ),
       ),

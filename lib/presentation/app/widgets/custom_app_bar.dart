@@ -1,3 +1,4 @@
+import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -15,7 +16,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorBase.backgroundColor,
+      surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: showBackArrow,
       elevation: 0,
       centerTitle: true,

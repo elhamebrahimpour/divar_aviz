@@ -108,7 +108,8 @@ class _AddAvizPageState extends State<AddAvizPage> {
 
   AppBar _buildAddAvizAppBar(TextTheme textTheme) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorBase.backgroundColor,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
       centerTitle: true,
       leading: GestureDetector(
