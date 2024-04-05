@@ -1,5 +1,8 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
 import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
+import 'package:divar_aviz/presentation/auth/login_page.dart';
+import 'package:divar_aviz/presentation/auth/user_register_verify_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -76,9 +79,12 @@ class _WelcomePageState extends State<WelcomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'ورود',
-                    style: textTheme.bodySmall!.copyWith(fontFamily: 'SB'),
+                  GestureDetector(
+                    onTap: () => context.pushNavigator(const LoginPage()),
+                    child: Text(
+                      'ورود',
+                      style: textTheme.bodySmall!.copyWith(fontFamily: 'SB'),
+                    ),
                   ),
                   const SizedBox(
                     width: 6,
@@ -112,30 +118,33 @@ class NextStepButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4),
-        color: ColorBase.mainColor,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/images/icon_arrow_left.png'),
-          const SizedBox(
-            width: 6,
-          ),
-          Text(
-            'مرحله بعد',
-            style: textTheme.bodySmall!.copyWith(
-              fontSize: 16,
-              color: Colors.white,
+    return GestureDetector(
+      onTap: () => context.pushNavigator(const UserRegisterVerificationPage()),
+      child: Container(
+        height: 48,
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          color: ColorBase.mainColor,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/icon_arrow_left.png'),
+            const SizedBox(
+              width: 6,
             ),
-          ),
-        ],
+            Text(
+              'مرحله بعد',
+              style: textTheme.bodySmall!.copyWith(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

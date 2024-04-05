@@ -5,145 +5,103 @@ import 'package:flutter/material.dart';
 import 'category_address_selection.dart';
 import 'locate_selection_view.dart';
 
-class AddAvizPage extends StatefulWidget {
-  const AddAvizPage({super.key});
+class AddAvizView extends StatefulWidget {
+  double progress;
+
+  AddAvizView({
+    super.key,
+    required this.progress,
+  });
 
   @override
-  State<AddAvizPage> createState() => _AddAvizPageState();
+  State<AddAvizView> createState() => _AddAvizViewState();
 }
 
-class _AddAvizPageState extends State<AddAvizPage> {
-  bool isLocationView = false;
-
+class _AddAvizViewState extends State<AddAvizView> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      appBar: _buildAddAvizAppBar(textTheme),
-      body: isLocationView
-          ? const LocateSelectionView()
-          : _addAvizView(textTheme),
-    );
-  }
-
-  SingleChildScrollView _addAvizView(TextTheme textTheme) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          const SizedBox(
-            width: double.infinity,
-          ),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
-            color: ColorBase.mainColor,
-            height: 4,
-            width: 112,
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          CategoryAndAddressSelection(textTheme: textTheme),
-          const SizedBox(
-            height: 22,
-          ),
-          const Divider(
-            color: Color(0xffF9FAFB),
-            thickness: 1,
-            indent: 16,
-            endIndent: 16,
-            height: 40,
-          ),
-          AvizPropertiesSelection(textTheme: textTheme),
-          const SizedBox(
-            height: 22,
-          ),
-          const Divider(
-            color: Color(0xffF9FAFB),
-            thickness: 1,
-            indent: 16,
-            endIndent: 16,
-            height: 40,
-          ),
-          AvizFacilitiesSelection(textTheme: textTheme),
-          const SizedBox(
-            height: 22,
-          ),
-          // next button
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isLocationView = true;
-              });
-            },
-            child: Container(
-              height: 48,
-              width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: ColorBase.mainColor,
-              ),
-              child: Center(
-                child: Text(
-                  'بعدی',
-                  style: textTheme.bodySmall!.copyWith(
-                    fontSize: 16,
-                    color: Colors.white,
+    return (widget.progress == 38)
+        ? LocateSelectionView(progress: widget.progress)
+        : SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const SizedBox(
+                  width: double.infinity,
+                ),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  color: ColorBase.mainColor,
+                  height: 4,
+                  width: widget.progress,
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                CategoryAndAddressSelection(textTheme: textTheme),
+                const SizedBox(
+                  height: 22,
+                ),
+                const Divider(
+                  color: Color(0xffF9FAFB),
+                  thickness: 1,
+                  indent: 16,
+                  endIndent: 16,
+                  height: 40,
+                ),
+                AvizPropertiesSelection(textTheme: textTheme),
+                const SizedBox(
+                  height: 22,
+                ),
+                const Divider(
+                  color: Color(0xffF9FAFB),
+                  thickness: 1,
+                  indent: 16,
+                  endIndent: 16,
+                  height: 40,
+                ),
+                AvizFacilitiesSelection(textTheme: textTheme),
+                const SizedBox(
+                  height: 22,
+                ),
+                // next button
+                GestureDetector(
+                  onTap: () {
+                    if (widget.progress < 38) {
+                      setState(() {
+                        widget.progress = widget.progress + 38;
+                      });
+                    }
+                  },
+                  child: Container(
+                    height: 48,
+                    width: double.infinity,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: ColorBase.mainColor,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'بعدی',
+                        style: textTheme.bodySmall!.copyWith(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                const SizedBox(
+                  height: 22,
+                ),
+              ],
             ),
-          ),
-          const SizedBox(
-            height: 22,
-          ),
-        ],
-      ),
-    );
-  }
-
-  AppBar _buildAddAvizAppBar(TextTheme textTheme) {
-    return AppBar(
-      backgroundColor: ColorBase.backgroundColor,
-      surfaceTintColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      leading: GestureDetector(
-        onTap: () {},
-        child: Image.asset('assets/images/icon_close.png'),
-      ),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'آویز',
-            style: textTheme.bodySmall!.copyWith(fontSize: 16),
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            'ثبت',
-            style: textTheme.bodyMedium!.copyWith(fontSize: 16),
-          ),
-        ],
-      ),
-      actions: [
-        GestureDetector(
-          onTap: () => setState(() {
-            isLocationView = false;
-          }),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Image.asset('assets/images/icon_arrow_right.png'),
-          ),
-        ),
-      ],
-    );
+          );
   }
 }
 
@@ -161,7 +119,7 @@ class AvizFacilitiesSelection extends StatefulWidget {
 }
 
 class _AvizFacilitiesSelectionState extends State<AvizFacilitiesSelection> {
-  int selectedIndex = 0;
+  List<int> selectedIndexes = [];
 
   List<String> mock = [
     'آسانسور',
@@ -206,7 +164,11 @@ class _AvizFacilitiesSelectionState extends State<AvizFacilitiesSelection> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedIndex = index;
+          if (selectedIndexes.contains(index)) {
+            selectedIndexes.remove(index);
+          } else {
+            selectedIndexes.add(index);
+          }
         });
       },
       child: Container(
@@ -227,9 +189,17 @@ class _AvizFacilitiesSelectionState extends State<AvizFacilitiesSelection> {
             Transform.scale(
               scale: 0.6,
               child: CupertinoSwitch(
-                value: selectedIndex == index,
+                value: selectedIndexes.contains(index),
                 activeColor: ColorBase.mainColor,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                    if (value) {
+                      selectedIndexes.add(index);
+                    } else {
+                      selectedIndexes.remove(index);
+                    }
+                  });
+                },
               ),
             ),
             const Spacer(),

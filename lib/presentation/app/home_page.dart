@@ -1,6 +1,6 @@
+import 'package:divar_aviz/presentation/aviz/pages/aviz_category_page.dart';
 import 'package:flutter/material.dart';
 
-import '../aviz/pages/add_aviz/add_aviz_page.dart';
 import '../aviz/pages/advertisements_page.dart';
 import '../aviz/pages/aviz_profile_page.dart';
 import '../aviz/pages/aviz_search_page.dart';
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         index: _selectedBottomNavigationItem,
         children: const [
           AvizProfilePage(),
-          AddAvizPage(),
+          CategoryPage(),
           AvizSearchPage(),
           AdvertisementsPage(),
         ],

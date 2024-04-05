@@ -1,11 +1,16 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
+import 'package:divar_aviz/presentation/app/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/resources/theme_colors.dart';
 
 class ImageSelectionView extends StatefulWidget {
+  final double progress;
+
   const ImageSelectionView({
     super.key,
+    required this.progress,
   });
 
   @override
@@ -35,7 +40,7 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
             duration: const Duration(milliseconds: 500),
             color: ColorBase.mainColor,
             height: 4,
-            width: 412,
+            width: widget.progress,
           ),
           const SizedBox(
             height: 32,
@@ -176,7 +181,9 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
             height: 22,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.pushNavigator(const HomePage());
+            },
             child: Container(
               height: 48,
               width: double.infinity,

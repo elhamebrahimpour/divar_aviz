@@ -1,13 +1,16 @@
+import 'package:divar_aviz/presentation/aviz/pages/views/image_selection_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/resources/theme_colors.dart';
 import '../../widgets/map_widget.dart';
-import 'image_selection_view.dart';
 
 class LocateSelectionView extends StatefulWidget {
-  const LocateSelectionView({
+  double progress;
+
+  LocateSelectionView({
     super.key,
+    required this.progress,
   });
 
   @override
@@ -16,14 +19,13 @@ class LocateSelectionView extends StatefulWidget {
 
 class _LocateSelectionViewState extends State<LocateSelectionView> {
   bool isLocationShowed = false;
-  bool isImageView = false;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return isImageView
-        ? const ImageSelectionView()
+    return (widget.progress > 38)
+        ? ImageSelectionView(progress: widget.progress)
         : Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisSize: MainAxisSize.max,
@@ -32,7 +34,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
                 duration: const Duration(milliseconds: 500),
                 color: ColorBase.mainColor,
                 height: 4,
-                width: 262,
+                width: widget.progress,
               ),
               const SizedBox(
                 height: 32,
@@ -115,7 +117,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
             ),
             Text(
               'موقعیت دقیق نقشه نمایش داده شود؟',
-              style: textTheme.bodyMedium!.copyWith(fontFamily: 'SM'),
+              style: textTheme.bodyMedium?.copyWith(fontFamily: 'SM'),
             ),
           ],
         ),
@@ -126,9 +128,11 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
   GestureDetector _buildNextButton(TextTheme textTheme) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isImageView = true;
-        });
+        if (widget.progress == 38) {
+          setState(() {
+            widget.progress = widget.progress + 38;
+          });
+        }
       },
       child: Container(
         height: 48,
@@ -142,7 +146,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
         child: Center(
           child: Text(
             'بعدی',
-            style: textTheme.bodySmall!.copyWith(
+            style: textTheme.bodySmall?.copyWith(
               fontSize: 16,
               color: Colors.white,
             ),

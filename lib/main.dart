@@ -1,6 +1,7 @@
 import 'package:divar_aviz/presentation/app/resources/app_theme.dart';
-import 'package:divar_aviz/presentation/app/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'presentation/app/boarding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData,
-      home: const HomePage(),
+      home: const OnBoardingPage(),
     );
   }
 }

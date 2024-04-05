@@ -1,7 +1,10 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
+import 'package:divar_aviz/presentation/aviz/pages/add_aviz_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/utils/utilities.dart';
 import '../../app/resources/theme_colors.dart';
+import '../widgets/app_bar_widget.dart';
 import '../widgets/category_item.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -13,7 +16,7 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   bool isCategoryItemSelected = false;
-  double animatedContainerWidth = 0;
+  double progress = 0;
   String selectedCategory = '';
 
   @override
@@ -21,7 +24,17 @@ class _CategoryPageState extends State<CategoryPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: _buildCategoryAppBar(context, textTheme),
+      appBar: AppBarWidget(
+        childWidget: Text(
+          'دسته بندی آویز',
+          style: textTheme.bodySmall?.copyWith(fontSize: 16),
+        ),
+        onBack: () => setState(() {
+          isCategoryItemSelected = false;
+          progress = progress >= 38 ? progress - 38 : progress;
+        }),
+        onClose: () => Navigator.of(context).pop(),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -33,7 +46,7 @@ class _CategoryPageState extends State<CategoryPage> {
               duration: const Duration(milliseconds: 500),
               color: ColorBase.mainColor,
               height: 4,
-              width: animatedContainerWidth,
+              width: progress,
             ),
             const SizedBox(
               height: 32,
@@ -47,7 +60,7 @@ class _CategoryPageState extends State<CategoryPage> {
                     return GestureDetector(
                       onTap: () => setState(() {
                         isCategoryItemSelected = true;
-                        animatedContainerWidth = animatedContainerWidth + 38;
+                        progress = progress + 38;
                         selectedCategory =
                             MockCategoryUtil.mainCategories[index];
                       }),
@@ -78,42 +91,20 @@ class _CategoryPageState extends State<CategoryPage> {
       child: ListView.builder(
         itemCount: subCategories.length,
         itemBuilder: (context, index) {
-          return CategoryItem(
-            textTheme: textTheme,
-            title: subCategories[index],
+          return GestureDetector(
+            onTap: () => setState(() {
+              progress = progress + 38;
+            }),
+            child: GestureDetector(
+              onTap: () => context.pushNavigator(const AddAvizPage()),
+              child: CategoryItem(
+                textTheme: textTheme,
+                title: subCategories[index],
+              ),
+            ),
           );
         },
       ),
-    );
-  }
-
-  AppBar _buildCategoryAppBar(BuildContext context, TextTheme textTheme) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      leading: GestureDetector(
-        onTap: () => Navigator.of(context).pop(),
-        child: Image.asset('assets/images/icon_close.png'),
-      ),
-      title: Text(
-        'دسته بندی آویز',
-        style: textTheme.bodySmall!.copyWith(fontSize: 16),
-      ),
-      actions: [
-        GestureDetector(
-          onTap: () => setState(() {
-            isCategoryItemSelected = false;
-            animatedContainerWidth = animatedContainerWidth >= 38
-                ? animatedContainerWidth - 38
-                : animatedContainerWidth;
-          }),
-          child: Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Image.asset('assets/images/icon_arrow_right.png'),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:divar_aviz/domain/utils/ext_context.dart';
+import 'package:divar_aviz/presentation/app/home_page.dart';
 import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
 import 'package:divar_aviz/presentation/auth/widgets/otp_code_input.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +16,30 @@ class UserRegisterVerificationPage extends StatefulWidget {
 
 class _UserRegisterVerificationPageState
     extends State<UserRegisterVerificationPage> {
+  int _countdownValue = 45;
+  final int _timerInterval = 1;
+
+  void _startCountdown() {
+    Timer.periodic(Duration(seconds: _timerInterval), (timer) {
+      if (_countdownValue > 0) {
+        setState(() {
+          _countdownValue--;
+        });
+      } else {
+        timer.cancel();
+        setState(() {
+          _countdownValue = 45;
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _startCountdown();
+  }
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -71,7 +99,12 @@ class _UserRegisterVerificationPageState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_countdownValue == 45) {
+                        _startCountdown();
+                      }
+                      return;
+                    },
                     child: Text(
                       'ارسال مجدد کد',
                       style: textTheme.bodyMedium!.copyWith(fontSize: 18),
@@ -81,29 +114,32 @@ class _UserRegisterVerificationPageState
                     width: 6,
                   ),
                   Text(
-                    '00:00',
-                    style: textTheme.bodySmall!.copyWith(
+                    '00:$_countdownValue ',
+                    style: textTheme.bodySmall?.copyWith(
                       color: ColorBase.textGreyColor,
                     ),
                   ),
                 ],
               ),
               const Spacer(),
-              Container(
-                height: 48,
-                width: double.infinity,
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: ColorBase.mainColor,
-                ),
-                child: Center(
-                  child: Text(
-                    'تایید ثبت نام',
-                    style: textTheme.bodySmall!.copyWith(
-                      fontSize: 16,
-                      color: Colors.white,
+              GestureDetector(
+                onTap: () => context.pushNavigator(const HomePage()),
+                child: Container(
+                  height: 48,
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: ColorBase.mainColor,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'تایید ثبت نام',
+                      style: textTheme.bodySmall!.copyWith(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

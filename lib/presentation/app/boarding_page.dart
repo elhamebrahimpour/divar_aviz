@@ -1,5 +1,8 @@
+import 'package:divar_aviz/domain/utils/ext_context.dart';
 import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
+import 'package:divar_aviz/presentation/auth/welcome_page.dart';
 import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
+import 'package:divar_aviz/presentation/auth/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -72,7 +75,7 @@ class OnBoardingPage extends StatelessWidget {
             const Spacer(),
             SmoothPageIndicator(
               controller: PageController(),
-              count: 3,
+              count: 1,
               effect: const ExpandingDotsEffect(
                 dotColor: Color(0xffEAECF0),
                 activeDotColor: ColorBase.mainColor,
@@ -106,8 +109,13 @@ class LoginRegisterButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         OutlinedButton(
-          onPressed: () {},
-          style: Theme.of(context).outlinedButtonTheme.style,
+          onPressed: () => context.pushNavigator(const LoginPage()),
+          style: OutlinedButton.styleFrom(
+            fixedSize: const Size(159, 40),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
           child: const Text(
             'ورود',
             style: TextStyle(
@@ -119,11 +127,21 @@ class LoginRegisterButton extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
-          style: Theme.of(context).elevatedButtonTheme.style,
+          onPressed: () => context.pushNavigator(const WelcomePage()),
+          style: ElevatedButton.styleFrom(
+            fixedSize: const Size(159, 40),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
           child: const Text(
             'ثبت نام',
             textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: 'SM',
+            ),
           ),
         )
       ],
