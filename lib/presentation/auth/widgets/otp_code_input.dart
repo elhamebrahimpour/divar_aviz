@@ -1,4 +1,4 @@
-import 'package:divar_aviz/presentation/app/resources/theme_colors.dart';
+import 'package:divar_aviz/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class OTPCodeInput extends StatefulWidget {

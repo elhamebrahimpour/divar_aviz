@@ -1,9 +1,11 @@
-import 'package:divar_aviz/presentation/app/resources/app_theme.dart';
+import 'package:divar_aviz/core/theme/app_theme.dart';
+import 'package:divar_aviz/di/di_init.dart';
+import 'package:divar_aviz/presentation/app/views/boarding_page.dart';
 import 'package:flutter/material.dart';
 
-import 'presentation/app/boarding_page.dart';
+void main() async {
+  await getItInit();
 
-void main() {
   runApp(const MyApp());
 }
 
