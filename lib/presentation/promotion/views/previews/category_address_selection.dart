@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/category_drop_down_menu.dart';
@@ -45,7 +45,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                   Text(
                     'محدوده ملک',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ColorBase.textGreyColor,
+                      color: ColorPrimary.textGreyColor,
                     ),
                   ),
                   const SizedBox(
@@ -69,7 +69,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                         child: Text(
                           'خیابان صیاد شیرازی',
                           style: textTheme.bodySmall!.copyWith(
-                            color: ColorBase.textGreyColor,
+                            color: ColorPrimary.textGreyColor,
                             fontSize: 16,
                           ),
                         ),
@@ -84,7 +84,7 @@ class CategoryAndAddressSelection extends StatelessWidget {
                   Text(
                     'دسته بندی',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ColorBase.textGreyColor,
+                      color: ColorPrimary.textGreyColor,
                     ),
                   ),
                   const SizedBox(

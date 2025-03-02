@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class OTPCodeInput extends StatefulWidget {
@@ -34,7 +34,7 @@ class _OTPCodeInputState extends State<OTPCodeInput> {
         textAlign: TextAlign.center,
         maxLines: 1,
         keyboardType: TextInputType.number,
-        cursorColor: ColorBase.mainColor,
+        cursorColor: ColorPrimary.mainColor,
         decoration: const InputDecoration(
           border: InputBorder.none,
         ),

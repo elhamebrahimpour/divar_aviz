@@ -1,6 +1,6 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/dashed_line_horizontal.dart';
-import 'package:divar_aviz/core/utils/dashed_line_vertical.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/dashed_line_horizontal.dart';
+import 'package:divar_aviz/config/utils/dashed_line_vertical.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/promotion/widgets/map_widget.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +55,7 @@ class _AvizItemDetailPageState extends State<AvizItemDetailPage> {
                     Text(
                       '۱۶ دقیقه پیش در گرگان',
                       style: textTheme.bodyMedium?.copyWith(
-                        color: ColorBase.textGreyColor,
+                        color: ColorPrimary.textGreyColor,
                       ),
                     ),
                     Container(
@@ -159,11 +159,11 @@ class _DetailPropertyTabsState extends State<DetailPropertyTabs>
           dividerColor: Colors.transparent,
           isScrollable: true,
           labelStyle: textTheme.bodySmall,
-          unselectedLabelColor: ColorBase.mainColor,
+          unselectedLabelColor: ColorPrimary.mainColor,
           unselectedLabelStyle: textTheme.bodySmall,
           indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: ColorBase.mainColor,
+            color: ColorPrimary.mainColor,
           ),
           indicatorSize: TabBarIndicatorSize.tab,
           tabs: const [
@@ -599,7 +599,7 @@ class _DetailPropertyTabsState extends State<DetailPropertyTabs>
           width: 159,
           padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: ColorBase.mainColor,
+            color: ColorPrimary.mainColor,
             borderRadius: BorderRadius.circular(6),
           ),
           child: Row(
@@ -627,7 +627,7 @@ class _DetailPropertyTabsState extends State<DetailPropertyTabs>
           width: 159,
           padding: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-            color: ColorBase.mainColor,
+            color: ColorPrimary.mainColor,
             borderRadius: BorderRadius.circular(6),
           ),
           child: Row(

@@ -1,5 +1,5 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/ext_context.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:divar_aviz/presentation/promotion/views/see_all_aviz_page.dart';
@@ -113,7 +113,7 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
               child: Text(
                 'مشاهده همه',
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: ColorBase.textGreyColor,
+                      color: ColorPrimary.textGreyColor,
                     ),
               ),
             ),
@@ -146,7 +146,7 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
               child: Text(
                 'مشاهده همه',
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      color: ColorBase.textGreyColor,
+                      color: ColorPrimary.textGreyColor,
                     ),
               ),
             ),

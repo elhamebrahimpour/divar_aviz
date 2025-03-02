@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +35,7 @@ class _AddAvizViewState extends State<AddAvizView> {
                 ),
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 500),
-                  color: ColorBase.mainColor,
+                  color: ColorPrimary.mainColor,
                   height: 4,
                   width: widget.progress,
                 ),
@@ -84,7 +84,7 @@ class _AddAvizViewState extends State<AddAvizView> {
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
-                      color: ColorBase.mainColor,
+                      color: ColorPrimary.mainColor,
                     ),
                     child: Center(
                       child: Text(
@@ -191,7 +191,7 @@ class _AvizFacilitiesSelectionState extends State<AvizFacilitiesSelection> {
               scale: 0.6,
               child: CupertinoSwitch(
                 value: selectedIndexes.contains(index),
-                activeColor: ColorBase.mainColor,
+                activeColor: ColorPrimary.mainColor,
                 onChanged: (value) {
                   setState(() {
                     if (value) {
@@ -349,7 +349,7 @@ class PropertiesItem extends StatelessWidget {
         Text(
           title,
           style: textTheme.bodySmall?.copyWith(
-            color: ColorBase.textGreyColor,
+            color: ColorPrimary.textGreyColor,
           ),
         ),
         const SizedBox(
@@ -377,14 +377,14 @@ class PropertiesItem extends StatelessWidget {
                     onTap: () => onIncreased?.call(),
                     child: const Icon(
                       Icons.arrow_drop_up,
-                      color: ColorBase.mainColor,
+                      color: ColorPrimary.mainColor,
                     ),
                   ),
                   GestureDetector(
                     onTap: () => onDecreased?.call(),
                     child: const Icon(
                       Icons.arrow_drop_down,
-                      color: ColorBase.mainColor,
+                      color: ColorPrimary.mainColor,
                     ),
                   ),
                 ],
@@ -392,7 +392,7 @@ class PropertiesItem extends StatelessWidget {
               Text(
                 '$number',
                 style: textTheme.bodySmall?.copyWith(
-                  color: ColorBase.textBlackColor,
+                  color: ColorPrimary.textBlackColor,
                   fontSize: 16,
                 ),
               ),

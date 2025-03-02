@@ -1,6 +1,5 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
-
 
 class MapWidget extends StatelessWidget {
   final TextTheme textTheme;
@@ -29,7 +28,7 @@ class MapWidget extends StatelessWidget {
             width: 185,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
-              color: ColorBase.mainColor,
+              color: ColorPrimary.mainColor,
               borderRadius: BorderRadius.circular(6),
             ),
             child: Row(

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:divar_aviz/core/constants/const_strings.dart';
+import 'package:divar_aviz/config/constants/const_strings.dart';
 import 'package:divar_aviz/di/di_init.dart';
 
 class DioProvider {

@@ -1,6 +1,5 @@
-
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
-import 'package:divar_aviz/presentation/app/widgets/search_input_widget.dart';
+import 'package:divar_aviz/presentation/app/widgets/inputs/search_input_widget.dart';
 import 'package:flutter/material.dart';
 
 class AvizSearchPage extends StatelessWidget {

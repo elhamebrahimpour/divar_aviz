@@ -1,10 +1,8 @@
-
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/ext_context.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/presentation/dashboard/views/dashboard_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class ImageSelectionView extends StatefulWidget {
   final double progress;
@@ -39,7 +37,7 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
         children: [
           AnimatedContainer(
             duration: const Duration(milliseconds: 500),
-            color: ColorBase.mainColor,
+            color: ColorPrimary.mainColor,
             height: 4,
             width: widget.progress,
           ),
@@ -192,7 +190,7 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
               padding: const EdgeInsets.symmetric(vertical: 8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: ColorBase.mainColor,
+                color: ColorPrimary.mainColor,
               ),
               child: Center(
                 child: Text(
@@ -240,7 +238,7 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
               scale: 0.6,
               child: CupertinoSwitch(
                 value: selectedIndex == index,
-                activeColor: ColorBase.mainColor,
+                activeColor: ColorPrimary.mainColor,
                 onChanged: (value) {},
               ),
             ),
@@ -278,7 +276,7 @@ class UploadImageWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(
                 width: 1,
-                color: ColorBase.textGreyColor,
+                color: ColorPrimary.textGreyColor,
               ),
             ),
           ),
@@ -300,7 +298,7 @@ class UploadImageWidget extends StatelessWidget {
                 width: 158,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: BoxDecoration(
-                  color: ColorBase.mainColor,
+                  color: ColorPrimary.mainColor,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Row(

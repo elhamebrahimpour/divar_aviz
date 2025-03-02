@@ -1,6 +1,6 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/ext_context.dart';
-import 'package:divar_aviz/core/utils/utilities.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
+import 'package:divar_aviz/config/utils/utilities.dart';
 import 'package:divar_aviz/presentation/promotion/views/add_aviz_page.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +44,7 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             AnimatedContainer(
               duration: const Duration(milliseconds: 500),
-              color: ColorBase.mainColor,
+              color: ColorPrimary.mainColor,
               height: 4,
               width: progress,
             ),

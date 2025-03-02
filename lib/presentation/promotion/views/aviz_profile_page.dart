@@ -1,6 +1,6 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
-import 'package:divar_aviz/presentation/app/widgets/search_input_widget.dart';
+import 'package:divar_aviz/presentation/app/widgets/inputs/search_input_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/aviz_profile_item.dart';
@@ -189,7 +189,7 @@ class _AvizProfilePageState extends State<AvizProfilePage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: ColorBase.mainColor,
+                            color: ColorPrimary.mainColor,
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
@@ -216,7 +216,7 @@ class _AvizProfilePageState extends State<AvizProfilePage> {
               ),
               const CircleAvatar(
                 radius: 30,
-                backgroundColor: ColorBase.mainColor,
+                backgroundColor: ColorPrimary.mainColor,
               ),
             ],
           ),

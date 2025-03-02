@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class DetailAppBarWidget extends StatelessWidget
@@ -8,7 +8,7 @@ class DetailAppBarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorBase.backgroundColor,
+      backgroundColor: ColorPrimary.backgroundColor,
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       elevation: 0,

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:divar_aviz/core/utils/ext_context.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/presentation/dashboard/views/dashboard_page.dart';
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/auth/widgets/otp_code_input.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +67,7 @@ class _UserLoginVerificationPageState extends State<UserLoginVerificationPage> {
                 child: Text(
                   'کد ورود پیامک شده را وارد کنید',
                   style: textTheme.bodySmall!.copyWith(
-                    color: ColorBase.textGreyColor,
+                    color: ColorPrimary.textGreyColor,
                   ),
                 ),
               ),
@@ -107,7 +107,7 @@ class _UserLoginVerificationPageState extends State<UserLoginVerificationPage> {
                     child: Text(
                       'ارسال مجدد کد',
                       style: textTheme.bodySmall?.copyWith(
-                        color: ColorBase.textGreyColor,
+                        color: ColorPrimary.textGreyColor,
                       ),
                     ),
                   ),
@@ -130,7 +130,7 @@ class _UserLoginVerificationPageState extends State<UserLoginVerificationPage> {
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    color: ColorBase.mainColor,
+                    color: ColorPrimary.mainColor,
                   ),
                   child: Center(
                     child: Text(

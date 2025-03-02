@@ -1,5 +1,5 @@
-import 'package:divar_aviz/core/utils/ext_context.dart';
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
 import 'package:divar_aviz/presentation/auth/views/login_page.dart';
 import 'package:divar_aviz/presentation/auth/views/user_register_verify_page.dart';
@@ -50,7 +50,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: Text(
                   'این فوق العادست که آویزو برای آگهی هات انتخاب کردی!',
                   style: textTheme.bodySmall!.copyWith(
-                    color: ColorBase.textGreyColor,
+                    color: ColorPrimary.textGreyColor,
                   ),
                   textDirection: TextDirection.rtl,
                 ),
@@ -92,7 +92,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   Text(
                     'قبلا ثبت نام نکردی؟',
                     style: textTheme.bodySmall!.copyWith(
-                      color: ColorBase.textGreyColor,
+                      color: ColorPrimary.textGreyColor,
                     ),
                   ),
                 ],
@@ -127,7 +127,7 @@ class NextStepButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
-          color: ColorBase.mainColor,
+          color: ColorPrimary.mainColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -175,7 +175,7 @@ class UserCredentialTextField extends StatelessWidget {
       child: TextField(
         keyboardType: textInputType,
         textAlign: TextAlign.end,
-        cursorColor: ColorBase.mainColor,
+        cursorColor: ColorPrimary.mainColor,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,

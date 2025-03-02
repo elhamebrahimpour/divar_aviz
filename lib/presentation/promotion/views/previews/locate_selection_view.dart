@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/promotion/views/previews/image_selection_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
             children: [
               AnimatedContainer(
                 duration: const Duration(milliseconds: 500),
-                color: ColorBase.mainColor,
+                color: ColorPrimary.mainColor,
                 height: 4,
                 width: widget.progress,
               ),
@@ -66,7 +66,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.rtl,
                   style: textTheme.bodySmall!
-                      .copyWith(color: ColorBase.textGreyColor, height: 1.7),
+                      .copyWith(color: ColorPrimary.textGreyColor, height: 1.7),
                 ),
               ),
               const SizedBox(
@@ -112,7 +112,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
               scale: 0.6,
               child: CupertinoSwitch(
                 value: isLocationShowed ? true : false,
-                activeColor: ColorBase.mainColor,
+                activeColor: ColorPrimary.mainColor,
                 onChanged: (value) {},
               ),
             ),
@@ -142,7 +142,7 @@ class _LocateSelectionViewState extends State<LocateSelectionView> {
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
-          color: ColorBase.mainColor,
+          color: ColorPrimary.mainColor,
         ),
         child: Center(
           child: Text(

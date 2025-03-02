@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../promotion/views/advertisements_page.dart';
 import '../../promotion/views/aviz_profile_page.dart';
 import '../../promotion/views/aviz_search_page.dart';
-import '../../../core/theme/theme_colors.dart';
+import '../../../config/theme/theme_colors.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -38,9 +38,9 @@ class _DashboardPageState extends State<DashboardPage> {
             _selectedBottomNavigationItem = index;
           });
         },
-        selectedItemColor: ColorBase.mainColor,
+        selectedItemColor: ColorPrimary.mainColor,
         selectedLabelStyle: Theme.of(context).textTheme.bodySmall,
-        unselectedItemColor: ColorBase.textGreyColor,
+        unselectedItemColor: ColorPrimary.textGreyColor,
         unselectedLabelStyle: Theme.of(context).textTheme.bodySmall,
         items: _buildNavItems,
       ),
@@ -81,7 +81,7 @@ class _DashboardPageState extends State<DashboardPage> {
           padding: EdgeInsets.all(6.0),
           child: Icon(
             Icons.search,
-            color: ColorBase.mainColor,
+            color: ColorPrimary.mainColor,
           ),
         ),
       ),

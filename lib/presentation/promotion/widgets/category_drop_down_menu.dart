@@ -1,7 +1,6 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/utilities.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/utilities.dart';
 import 'package:flutter/material.dart';
-
 
 class CategoryDropDownMenu extends StatefulWidget {
   const CategoryDropDownMenu({super.key});
@@ -44,7 +43,7 @@ class _CategoryDropDownMenuState extends State<CategoryDropDownMenu> {
                   item,
                   textAlign: TextAlign.end,
                   style: textTheme.bodySmall?.copyWith(
-                    color: ColorBase.textBlackColor,
+                    color: ColorPrimary.textBlackColor,
                     fontSize: 16,
                   ),
                 ),

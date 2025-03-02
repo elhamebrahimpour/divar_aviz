@@ -1,150 +1,103 @@
-import 'package:divar_aviz/core/utils/ext_context.dart';
-import 'package:divar_aviz/core/theme/theme_colors.dart';
+import 'package:divar_aviz/config/constants/assets_route.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/app/views/welcome_page.dart';
-import 'package:divar_aviz/presentation/app/widgets/small_logo_widget.dart';
+import 'package:divar_aviz/presentation/app/widgets/boarding_view_item_widget.dart';
+import 'package:divar_aviz/presentation/app/widgets/buttons/custom_filled_button.dart';
+import 'package:divar_aviz/presentation/app/widgets/buttons/custom_outlined_button.dart';
 import 'package:divar_aviz/presentation/auth/views/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingPage extends StatelessWidget {
+class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({
     super.key,
   });
 
   @override
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
+}
+
+class _OnBoardingPageState extends State<OnBoardingPage> {
+  final PageController _pageController = PageController(initialPage: 0);
+
+  @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.symmetric(
-                vertical: MediaQuery.of(context).size.height / 10,
-              ),
-              color: Colors.white,
-              width: double.infinity,
-              child: Stack(
+            Expanded(
+              child: PageView(
+                controller: _pageController,
                 children: [
-                  Image.asset('assets/images/back_pattern.png'),
-                  Center(
-                    child: Image.asset(
-                      'assets/images/back_asset.png',
-                      height: 225,
-                      width: 225,
-                    ),
+                  BoardingViewItemWidget(
+                    image: getPng('back_asset'),
+                    title: 'اینجا محل آگهی شماست',
+                    subTitle:
+                        'در آویز ملک خود را برای فروش،اجاره و رهن آگهی کنید و یا اگر دنبال ملک با مشخصات دلخواه خود هستید آویز ها را ببینید',
+                  ),
+                  BoardingViewItemWidget(
+                    image: getPng('back_asset'),
+                    title: 'اینجا محل آگهی شماست',
+                  ),
+                  BoardingViewItemWidget(
+                    image: getPng('back_asset'),
+                    title: 'اینجا محل آگهی شماست',
+                    subTitle:
+                        'در آویز ملک خود را برای فروش،اجاره و رهن آگهی کنید و یا اگر دنبال ملک با مشخصات دلخواه خود هستید آویز ها را ببینید',
                   ),
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'آگهی شماست',
-                  style: textTheme.bodyMedium,
-                ),
-                const SizedBox(
-                  width: 12,
-                ),
-                SmallLogoWidget(textTheme: textTheme),
-                const SizedBox(
-                  width: 12,
-                ),
-                Text(
-                  'اینجا محل',
-                  style: textTheme.bodyMedium,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 22,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Text(
-                'در آویز ملک خود را برای فروش،اجاره و رهن آگهی کنید و یا اگر دنبال ملک با مشخصات دلخواه خود هستید آویز ها را ببینید',
-                textAlign: TextAlign.center,
-                style: textTheme.bodySmall!.copyWith(
-                  color: ColorBase.textGreyColor,
-                  letterSpacing: 1,
-                  height: 1.5,
-                ),
-              ),
-            ),
-            const Spacer(),
             SmoothPageIndicator(
-              controller: PageController(),
-              count: 1,
+              controller: _pageController,
+              count: 3,
               effect: const ExpandingDotsEffect(
-                dotColor: Color(0xffEAECF0),
-                activeDotColor: ColorBase.mainColor,
-                dotHeight: 6,
-                dotWidth: 6,
+                dotColor: ColorNeutral.lightGrey,
+                activeDotColor: ColorPrimary.mainColor,
+                dotHeight: 7,
+                dotWidth: 7,
                 expansionFactor: 3,
               ),
             ),
             const SizedBox(
               height: 32,
             ),
-            const LoginRegisterButton(),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomOutlinedButton(
+                    title: 'ورود',
+                    isLoading: false,
+                    onClicked: () => context.pushNavigator(
+                      const LoginPage(),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: CustomFilledButton(
+                    title: 'ثبت نام',
+                    isLoading: false,
+                    onClicked: () => context.pushNavigator(
+                      const WelcomePage(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
-              height: 22,
+              height: 18,
             ),
           ],
         ),
       ),
     );
   }
-}
-
-class LoginRegisterButton extends StatelessWidget {
-  const LoginRegisterButton({
-    super.key,
-  });
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        OutlinedButton(
-          onPressed: () => context.pushNavigator(const LoginPage()),
-          style: OutlinedButton.styleFrom(
-            fixedSize: const Size(159, 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          child: const Text(
-            'ورود',
-            style: TextStyle(
-              color: ColorBase.mainColor,
-              fontSize: 16,
-              fontFamily: 'SM',
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () => context.pushNavigator(const WelcomePage()),
-          style: ElevatedButton.styleFrom(
-            fixedSize: const Size(159, 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          child: const Text(
-            'ثبت نام',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontFamily: 'SM',
-            ),
-          ),
-        )
-      ],
-    );
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }

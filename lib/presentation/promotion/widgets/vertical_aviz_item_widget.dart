@@ -1,5 +1,5 @@
-import 'package:divar_aviz/core/theme/theme_colors.dart';
-import 'package:divar_aviz/core/utils/ext_context.dart';
+import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class VerticalAvizItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-              color: ColorBase.textGreyColor.withOpacity(0.5),
+              color: ColorPrimary.textGreyColor.withOpacity(0.5),
               blurRadius: 20,
               spreadRadius: -10,
               offset: const Offset(0.0, 8),
@@ -83,7 +83,7 @@ class VerticalAvizItem extends StatelessWidget {
           Text(
             aviz.descryption,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  color: ColorBase.textGreyColor,
+                  color: ColorPrimary.textGreyColor,
                 ),
             textAlign: TextAlign.start,
           ),
@@ -100,14 +100,14 @@ class VerticalAvizItem extends StatelessWidget {
           'قیمت:',
           textDirection: TextDirection.rtl,
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: ColorBase.textBlackColor,
+                color: ColorPrimary.textBlackColor,
               ),
         ),
         Container(
           height: 26,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
-            color: ColorBase.textGreyColor.withOpacity(0.1),
+            color: ColorPrimary.textGreyColor.withOpacity(0.1),
             borderRadius: BorderRadius.circular(3),
           ),
           child: Text(

@@ -1,4 +1,4 @@
-import 'package:divar_aviz/core/theme/app_theme.dart';
+import 'package:divar_aviz/config/theme/app_theme.dart';
 import 'package:divar_aviz/di/di_init.dart';
 import 'package:divar_aviz/presentation/app/views/boarding_page.dart';
 import 'package:flutter/material.dart';
