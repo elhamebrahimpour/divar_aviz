@@ -1,11 +1,11 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/config/utils/utilities.dart';
-import 'package:divar_aviz/presentation/promotion/views/add_aviz_page.dart';
+import 'package:divar_aviz/presentation/promotion/views/subViews/add_promotion_page.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/app_bar_widget.dart';
-import '../widgets/category_item.dart';
+import '../widgets/category_app_bar.dart';
+import '../widgets/category_item_widget.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
@@ -19,16 +19,21 @@ class _CategoryPageState extends State<CategoryPage> {
   double progress = 0;
   String selectedCategory = '';
 
+  bool hasBackIcon = false;
+  bool hasCloseIcon = false;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBarWidget(
-        childWidget: Text(
-          'دسته بندی آویز',
-          style: textTheme.bodySmall?.copyWith(fontSize: 16),
+      appBar: CategoryAppBar(
+        title: Text(
+          'دسته بندی ها',
+          style: textTheme.titleSmall,
         ),
+        hasBackIcon: hasBackIcon,
+        hasCloseIcon: hasCloseIcon,
         onBack: () => setState(() {
           isCategoryItemSelected = false;
           progress = progress >= 38 ? progress - 38 : progress;
@@ -60,11 +65,12 @@ class _CategoryPageState extends State<CategoryPage> {
                     return GestureDetector(
                       onTap: () => setState(() {
                         isCategoryItemSelected = true;
+                        hasBackIcon = true;
                         progress = progress + 38;
                         selectedCategory =
                             MockCategoryUtil.mainCategories[index];
                       }),
-                      child: CategoryItem(
+                      child: CategoryItemWidget(
                         textTheme: textTheme,
                         title: MockCategoryUtil.mainCategories[index],
                       ),
@@ -96,8 +102,8 @@ class _CategoryPageState extends State<CategoryPage> {
               progress = progress + 38;
             }),
             child: GestureDetector(
-              onTap: () => context.pushNavigator(const AddAvizPage()),
-              child: CategoryItem(
+              onTap: () => context.pushNavigator(const AddPromotionPage()),
+              child: CategoryItemWidget(
                 textTheme: textTheme,
                 title: subCategories[index],
               ),

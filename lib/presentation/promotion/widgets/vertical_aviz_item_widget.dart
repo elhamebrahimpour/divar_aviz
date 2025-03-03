@@ -3,7 +3,7 @@ import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:flutter/material.dart';
 
-import '../views/aviz_item_detail_page.dart';
+import '../views/subViews/promotion_item_detail_page.dart';
 
 class VerticalAvizItem extends StatelessWidget {
   final Promotion aviz;
@@ -16,7 +16,7 @@ class VerticalAvizItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.pushNavigator(
-        AvizItemDetailPage(
+        PromotionItemDetailPage(
           aviz: aviz,
         ),
       ),

@@ -1,19 +1,19 @@
-import 'package:divar_aviz/presentation/promotion/views/aviz_category_page.dart';
+import 'package:divar_aviz/presentation/promotion/views/category_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../promotion/views/advertisements_page.dart';
-import '../../promotion/views/aviz_profile_page.dart';
-import '../../promotion/views/aviz_search_page.dart';
+import '../../promotion/views/home_page.dart';
 import '../../../config/theme/theme_colors.dart';
+import '../../promotion/views/profile_page.dart';
+import '../../promotion/views/search_page.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _MainPageState extends State<MainPage> {
   int _selectedBottomNavigationItem = 3;
 
   @override
@@ -22,10 +22,10 @@ class _DashboardPageState extends State<DashboardPage> {
       body: IndexedStack(
         index: _selectedBottomNavigationItem,
         children: const [
-          AvizProfilePage(),
+          ProfilePage(),
           CategoryPage(),
-          AvizSearchPage(),
-          AdvertisementsPage(),
+          SearchPage(),
+          HomePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -39,9 +39,9 @@ class _DashboardPageState extends State<DashboardPage> {
           });
         },
         selectedItemColor: ColorPrimary.mainColor,
-        selectedLabelStyle: Theme.of(context).textTheme.bodySmall,
+        selectedLabelStyle: Theme.of(context).textTheme.labelMedium,
         unselectedItemColor: ColorPrimary.textGreyColor,
-        unselectedLabelStyle: Theme.of(context).textTheme.bodySmall,
+        unselectedLabelStyle: Theme.of(context).textTheme.labelMedium,
         items: _buildNavItems,
       ),
     );
@@ -50,25 +50,31 @@ class _DashboardPageState extends State<DashboardPage> {
   List<BottomNavigationBarItem> get _buildNavItems {
     return [
       BottomNavigationBarItem(
-        label: 'آویز من',
+        label: 'پروفایل',
         icon: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Image.asset('assets/images/icon_profile.png'),
         ),
         activeIcon: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/icon_profile_active.png'),
+          child: Image.asset(
+            'assets/images/icon_profile_active.png',
+            color: ColorPrimary.mainColor,
+          ),
         ),
       ),
       BottomNavigationBarItem(
-        label: 'افزودن آویز',
+        label: 'افزودن آگهی',
         icon: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Image.asset('assets/images/icon_add.png'),
         ),
         activeIcon: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/icon_add_active.png'),
+          child: Image.asset(
+            'assets/images/icon_add_active.png',
+            color: ColorPrimary.mainColor,
+          ),
         ),
       ),
       BottomNavigationBarItem(
@@ -77,23 +83,29 @@ class _DashboardPageState extends State<DashboardPage> {
           padding: const EdgeInsets.all(6.0),
           child: Image.asset('assets/images/icon_search.png'),
         ),
-        activeIcon: const Padding(
-          padding: EdgeInsets.all(6.0),
-          child: Icon(
-            Icons.search,
+        activeIcon: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Image.asset(
+            'assets/images/icon_search_active.png',
             color: ColorPrimary.mainColor,
           ),
         ),
       ),
       BottomNavigationBarItem(
-        label: 'آویز آگهی ها',
+        label: 'خانه',
         icon: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/small_logo.png'),
+          child: Image.asset(
+            'assets/images/icon_home.png',
+            scale: 2.6,
+          ),
         ),
         activeIcon: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/small_logo_colored.png'),
+          child: Image.asset(
+            'assets/images/icon_home_active.png',
+            scale: 2.6,
+          ),
         ),
       ),
     ];

@@ -1,7 +1,7 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
-import 'package:divar_aviz/presentation/promotion/views/aviz_item_detail_page.dart';
+import 'package:divar_aviz/presentation/promotion/views/subViews/promotion_item_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalAvizItem extends StatelessWidget {
@@ -15,7 +15,7 @@ class HorizontalAvizItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.pushNavigator(
-        AvizItemDetailPage(
+        PromotionItemDetailPage(
           aviz: aviz,
         ),
       ),

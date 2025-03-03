@@ -1,4 +1,5 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:flutter/material.dart';
 
 class CustomFilledButton extends StatelessWidget {
@@ -32,19 +33,20 @@ class CustomFilledButton extends StatelessWidget {
     double w = width ?? double.infinity;
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: margin ?? 16),
+      margin: EdgeInsets.symmetric(horizontal: margin ?? Dimentions.sixteen),
       width: w,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
           minimumSize: Size(w, 46),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+          padding: const EdgeInsets.symmetric(
+              horizontal: Dimentions.fifteen, vertical: Dimentions.four),
           backgroundColor: isEnable
               ? color ?? ColorPrimary.mainColor
               : ColorNeutral.mediumGrey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(radius ?? 6),
+              Radius.circular(radius ?? Dimentions.radius6),
             ),
           ),
         ),
@@ -52,7 +54,8 @@ class CustomFilledButton extends StatelessWidget {
         child: (isLoading)
             ? Center(
                 child: Container(
-                  margin: const EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(
+                      left: Dimentions.ten, right: Dimentions.ten),
                   width: 16,
                   height: 16,
                   child: const CircularProgressIndicator(
@@ -75,7 +78,7 @@ class CustomFilledButton extends StatelessWidget {
                         children: [
                           Image.asset('$icon'),
                           const SizedBox(
-                            width: 6,
+                            width: Dimentions.six,
                           ),
                           Text(
                             title,

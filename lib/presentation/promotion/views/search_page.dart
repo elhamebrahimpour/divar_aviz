@@ -2,17 +2,16 @@ import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:divar_aviz/presentation/app/widgets/inputs/search_input_widget.dart';
 import 'package:flutter/material.dart';
 
-class AvizSearchPage extends StatelessWidget {
-  const AvizSearchPage({super.key});
+class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: CustomAppBar(
-        textTheme: textTheme,
-        title: 'جستجوی آویز',
+      appBar: const CustomAppBar(
+        title: 'جستجوی آگهی',
       ),
       body: SafeArea(
         child: Column(

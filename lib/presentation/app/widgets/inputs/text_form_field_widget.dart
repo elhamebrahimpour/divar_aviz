@@ -1,4 +1,5 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -81,21 +82,22 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: widget.margin ?? 16),
+      margin:
+          EdgeInsets.symmetric(horizontal: widget.margin ?? Dimentions.sixteen),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: Dimentions.egith),
               child: Text(
                 widget.label ?? '',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             const SizedBox(
-              height: 6,
+              height: Dimentions.six,
             ),
             _buildTextInput(context),
           ],
@@ -139,7 +141,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         cursorWidth: 1.6,
         decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+              const EdgeInsets.symmetric(horizontal: Dimentions.sixteen),
           counterText: isParaghraph ? '0/600' : '',
           hintText: widget.hint,
           hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -158,12 +160,12 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
               width: 1,
             ),
             borderRadius: BorderRadius.circular(
-              widget.radius ?? 6,
+              widget.radius ?? Dimentions.radius6,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              widget.radius ?? 6,
+              widget.radius ?? Dimentions.radius6,
             ),
             borderSide: BorderSide(
               color: ColorNeutral.lightestGrey.withOpacity(0.8),
@@ -171,7 +173,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              widget.radius ?? 6,
+              widget.radius ?? Dimentions.radius6,
             ),
             borderSide: const BorderSide(
               color: ColorNeutral.darkGrey,
@@ -179,7 +181,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
-              widget.radius ?? 6,
+              widget.radius ?? Dimentions.radius6,
             ),
           ),
           prefixIcon: widget.textDirection == null ? _getSuffix() : null,

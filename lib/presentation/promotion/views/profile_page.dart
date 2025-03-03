@@ -3,16 +3,16 @@ import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:divar_aviz/presentation/app/widgets/inputs/search_input_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/aviz_profile_item.dart';
+import '../widgets/profile_item_widget.dart';
 
-class AvizProfilePage extends StatefulWidget {
-  const AvizProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<AvizProfilePage> createState() => _AvizProfilePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _AvizProfilePageState extends State<AvizProfilePage> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -39,8 +39,7 @@ class _AvizProfilePageState extends State<AvizProfilePage> {
     ];
 
     return Scaffold(
-      appBar: CustomAppBar(
-        textTheme: textTheme,
+      appBar: const CustomAppBar(
         title: 'آویز من',
       ),
       body: SafeArea(
@@ -60,7 +59,7 @@ class _AvizProfilePageState extends State<AvizProfilePage> {
             ),
             // aviz items
             for (int i = 0; i < mockTitles.length; i++) ...{
-              AvizProfileItem(
+              ProfileItemwidget(
                 title: mockTitles[i],
                 icon: mockIcons[i],
                 textTheme: textTheme,

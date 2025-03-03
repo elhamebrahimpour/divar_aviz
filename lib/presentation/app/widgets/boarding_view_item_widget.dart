@@ -1,5 +1,6 @@
 import 'package:divar_aviz/config/constants/assets_route.dart';
 import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:flutter/material.dart';
 
 class BoardingViewItemWidget extends StatelessWidget {
@@ -39,17 +40,19 @@ class BoardingViewItemWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 22,
+            height: Dimentions.twentyTwo,
           ),
           Text(
             title,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
-            height: 22,
+            height: Dimentions.twentyTwo,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimentions.thirtyTwo,
+            ),
             child: Text(
               subTitle ?? '',
               textAlign: TextAlign.center,

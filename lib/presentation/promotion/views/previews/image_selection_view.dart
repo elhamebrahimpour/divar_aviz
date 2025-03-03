@@ -1,6 +1,6 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
-import 'package:divar_aviz/presentation/dashboard/views/dashboard_page.dart';
+import 'package:divar_aviz/presentation/app/views/main_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -181,7 +181,7 @@ class _ImageSelectionViewState extends State<ImageSelectionView> {
           ),
           GestureDetector(
             onTap: () {
-              context.pushNavigator(const DashboardPage());
+              context.pushNavigator(const MainPage());
             },
             child: Container(
               height: 48,

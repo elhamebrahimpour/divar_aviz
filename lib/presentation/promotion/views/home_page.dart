@@ -2,20 +2,20 @@ import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
-import 'package:divar_aviz/presentation/promotion/views/see_all_aviz_page.dart';
+import 'package:divar_aviz/presentation/promotion/views/subViews/see_all_promotions_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/vertical_aviz_item_widget.dart';
 import '../widgets/horizontal_aviz_item_widget.dart';
 
-class AdvertisementsPage extends StatefulWidget {
-  const AdvertisementsPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<AdvertisementsPage> createState() => _AdvertisementsPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _AdvertisementsPageState extends State<AdvertisementsPage> {
+class _HomePageState extends State<HomePage> {
   final List<Promotion> mockData = [
     Promotion(
       title: 'ویلا ۵۰۰ متری زیر قیمت',
@@ -45,12 +45,9 @@ class _AdvertisementsPageState extends State<AdvertisementsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
-      appBar: CustomAppBar(
-        textTheme: textTheme,
-        title: 'آویز',
+      appBar: const CustomAppBar(
+        title: 'صفحه اصلی',
       ),
       body: SafeArea(
         child: _buildBody(context),

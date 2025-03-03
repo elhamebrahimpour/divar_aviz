@@ -2,7 +2,7 @@ import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/horizontal_aviz_item_widget.dart';
+import '../../widgets/horizontal_aviz_item_widget.dart';
 
 class SeeAllAvizPage extends StatefulWidget {
   const SeeAllAvizPage({super.key});
@@ -29,12 +29,9 @@ class _SeeAllAvizPageState extends State<SeeAllAvizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
-      appBar: CustomAppBar(
-        textTheme: textTheme,
-        title: 'همه آویزها',
+      appBar: const CustomAppBar(
+        title: 'همه آگهی ها',
       ),
       body: SafeArea(
         child: _buildBody(context),

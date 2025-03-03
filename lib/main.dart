@@ -1,6 +1,6 @@
 import 'package:divar_aviz/config/theme/app_theme.dart';
 import 'package:divar_aviz/di/di_init.dart';
-import 'package:divar_aviz/presentation/app/views/boarding_page.dart';
+import 'package:divar_aviz/presentation/app/views/on_boarding_page.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

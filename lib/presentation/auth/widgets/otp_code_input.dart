@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 class OTPCodeInput extends StatefulWidget {
   const OTPCodeInput({
     super.key,
-    required this.textTheme,
   });
-  final TextTheme textTheme;
 
   @override
   State<OTPCodeInput> createState() => _OTPCodeInputState();

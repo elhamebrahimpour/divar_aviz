@@ -5,21 +5,22 @@ import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/promotion/widgets/map_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/detail_app_bar_widget.dart';
+import '../../widgets/detail_app_bar_widget.dart';
 
-class AvizItemDetailPage extends StatefulWidget {
+class PromotionItemDetailPage extends StatefulWidget {
   final Promotion aviz;
 
-  const AvizItemDetailPage({
+  const PromotionItemDetailPage({
     super.key,
     required this.aviz,
   });
 
   @override
-  State<AvizItemDetailPage> createState() => _AvizItemDetailPageState();
+  State<PromotionItemDetailPage> createState() =>
+      _PromotionItemDetailPageState();
 }
 
-class _AvizItemDetailPageState extends State<AvizItemDetailPage> {
+class _PromotionItemDetailPageState extends State<PromotionItemDetailPage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

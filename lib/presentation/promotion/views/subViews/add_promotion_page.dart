@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/app_bar_widget.dart';
-import 'previews/add_aviz_view.dart';
+import '../../widgets/category_app_bar.dart';
+import '../previews/add_aviz_view.dart';
 
-class AddAvizPage extends StatefulWidget {
-  const AddAvizPage({super.key});
+class AddPromotionPage extends StatefulWidget {
+  const AddPromotionPage({super.key});
 
   @override
-  State<AddAvizPage> createState() => _AddAvizPageState();
+  State<AddPromotionPage> createState() => _AddPromotionPageState();
 }
 
-class _AddAvizPageState extends State<AddAvizPage> {
+class _AddPromotionPageState extends State<AddPromotionPage> {
   double progress = 0;
 
   @override
@@ -18,8 +18,8 @@ class _AddAvizPageState extends State<AddAvizPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBarWidget(
-        childWidget: Row(
+      appBar: CategoryAppBar(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
@@ -35,6 +35,8 @@ class _AddAvizPageState extends State<AddAvizPage> {
             ),
           ],
         ),
+        hasBackIcon: true,
+        hasCloseIcon: true,
         onBack: () {
           if (progress > 0) {
             setState(() {

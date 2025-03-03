@@ -1,21 +1,22 @@
 import 'dart:async';
 
+import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
-import 'package:divar_aviz/presentation/dashboard/views/dashboard_page.dart';
+import 'package:divar_aviz/presentation/app/widgets/buttons/custom_filled_button.dart';
+import 'package:divar_aviz/presentation/app/views/main_page.dart';
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/presentation/auth/widgets/otp_code_input.dart';
 import 'package:flutter/material.dart';
 
-class UserRegisterVerificationPage extends StatefulWidget {
-  const UserRegisterVerificationPage({super.key});
+class RegisterVerificationPage extends StatefulWidget {
+  const RegisterVerificationPage({super.key});
 
   @override
-  State<UserRegisterVerificationPage> createState() =>
-      _UserRegisterVerificationPageState();
+  State<RegisterVerificationPage> createState() =>
+      _RegisterVerificationPageState();
 }
 
-class _UserRegisterVerificationPageState
-    extends State<UserRegisterVerificationPage> {
+class _RegisterVerificationPageState extends State<RegisterVerificationPage> {
   int _countdownValue = 45;
   final int _timerInterval = 1;
 
@@ -54,46 +55,40 @@ class _UserRegisterVerificationPageState
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimentions.twentyTwo),
                 child: Text(
                   'تایید شماره موبایل',
-                  style: textTheme.bodyMedium,
+                  style: textTheme.titleLarge,
                 ),
               ),
               const SizedBox(
-                height: 22,
+                height: Dimentions.thirtyTwo,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimentions.twentyTwo),
                 child: Text(
-                  'کد ثبت نام پیامک شده را وارد کنید',
-                  style: textTheme.bodySmall!.copyWith(
-                    color: ColorPrimary.textGreyColor,
+                  'کد پیامک شده را وارد کنید',
+                  style: textTheme.bodySmall?.copyWith(
+                    color: ColorNeutral.darkGrey,
                   ),
                 ),
               ),
               const SizedBox(
-                height: 32,
+                height: Dimentions.sixteen,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  OTPCodeInput(
-                    textTheme: textTheme,
-                  ),
-                  OTPCodeInput(
-                    textTheme: textTheme,
-                  ),
-                  OTPCodeInput(
-                    textTheme: textTheme,
-                  ),
-                  OTPCodeInput(
-                    textTheme: textTheme,
-                  ),
+                  OTPCodeInput(),
+                  OTPCodeInput(),
+                  OTPCodeInput(),
+                  OTPCodeInput(),
                 ],
               ),
               const SizedBox(
-                height: 32,
+                height: Dimentions.thirtyTwo,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -107,45 +102,30 @@ class _UserRegisterVerificationPageState
                     },
                     child: Text(
                       'ارسال مجدد کد',
-                      style: textTheme.bodyMedium!.copyWith(fontSize: 18),
+                      style: textTheme.bodySmall?.copyWith(
+                        color: ColorPrimary.textGreyColor,
+                      ),
                     ),
                   ),
                   const SizedBox(
                     width: 6,
                   ),
                   Text(
-                    '00:$_countdownValue ',
-                    style: textTheme.bodySmall?.copyWith(
-                      color: ColorPrimary.textGreyColor,
-                    ),
+                    '00:$_countdownValue',
+                    style: textTheme.bodyMedium!.copyWith(fontSize: 18),
                   ),
                 ],
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () => context.pushNavigator(const DashboardPage()),
-                child: Container(
-                  height: 48,
-                  width: double.infinity,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: ColorPrimary.mainColor,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'تایید ثبت نام',
-                      style: textTheme.bodySmall!.copyWith(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+              CustomFilledButton(
+                title: 'تایید ثبت نام',
+                isLoading: false,
+                onClicked: () => context.pushNavigator(
+                  const MainPage(),
                 ),
               ),
               const SizedBox(
-                height: 22,
+                height: Dimentions.twentyTwo,
               ),
             ],
           ),

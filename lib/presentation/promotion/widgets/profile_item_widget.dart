@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class AvizProfileItem extends StatelessWidget {
+class ProfileItemwidget extends StatelessWidget {
   final String title;
   final String? icon;
   final TextTheme textTheme;
   final Function? onItemTapped;
 
-  const AvizProfileItem({
+  const ProfileItemwidget({
     super.key,
     required this.title,
     this.icon,

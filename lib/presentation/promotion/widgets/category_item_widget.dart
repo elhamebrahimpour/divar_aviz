@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CategoryItem extends StatelessWidget {
+class CategoryItemWidget extends StatelessWidget {
   final TextTheme textTheme;
   final String title;
 
-  const CategoryItem({
+  const CategoryItemWidget({
     super.key,
     required this.textTheme,
     required this.title,

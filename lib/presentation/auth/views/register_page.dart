@@ -3,22 +3,21 @@ import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/regex.dart';
-import 'package:divar_aviz/config/utils/responsive_helper.dart';
 import 'package:divar_aviz/presentation/app/widgets/buttons/custom_filled_button.dart';
 import 'package:divar_aviz/presentation/app/widgets/inputs/text_form_field_widget.dart';
 import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
-import 'package:divar_aviz/presentation/auth/views/login_verification_page.dart';
-import 'package:divar_aviz/presentation/auth/views/register_page.dart';
+import 'package:divar_aviz/presentation/auth/views/login_page.dart';
+import 'package:divar_aviz/presentation/auth/views/register_verification_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -30,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(
-              top: Responsive.getHeight(context) / 10,
+              top: MediaQuery.of(context).size.height / 10,
             ),
             child: Form(
               key: _formKey,
@@ -41,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: Dimentions.twentyTwo),
                     child: Text(
-                      'ورود',
+                      'خوش اومدی به آویز',
                       style: textTheme.titleLarge,
                     ),
                   ),
@@ -51,16 +50,19 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: Dimentions.twentyTwo),
-                    child: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        'خوشحالیم که مجددا آویز رو برای آگهی انتخاب کردی!',
-                        style: textTheme.bodySmall?.copyWith(
-                          color: ColorNeutral.darkGrey,
-                        ),
-                        textAlign: TextAlign.start,
+                    child: Text(
+                      'این فوق العادست که آویزو برای آگهی هات انتخاب کردی!',
+                      style: textTheme.bodySmall?.copyWith(
+                        color: ColorNeutral.darkGrey,
                       ),
+                      textDirection: TextDirection.rtl,
                     ),
+                  ),
+                  TextFormFieldWidget(
+                    hint: 'نام و نام خانوادگی',
+                    keyboardType: TextInputType.name,
+                    maxLines: 1,
+                    onChanged: (String? value) {},
                   ),
                   TextFormFieldWidget(
                     hint: 'شماره موبایل',
@@ -85,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                     isLoading: false,
                     icon: getPng('icon_arrow_left'),
                     onClicked: () => context.pushNavigator(
-                      const LoginVerificationPage(),
+                      const RegisterVerificationPage(),
                     ),
                   ),
                   const SizedBox(
@@ -96,10 +98,10 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       InkWell(
                         onTap: () => context.pushNavigator(
-                          const RegisterPage(),
+                          const LoginPage(),
                         ),
                         child: Text(
-                          'ثبت نام',
+                          'ورود',
                           style: textTheme.labelLarge,
                         ),
                       ),
@@ -107,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                         width: Dimentions.six,
                       ),
                       Text(
-                        'تاحالا ثبت نام نکردی؟',
+                        'قبلا ثبت نام نکردی؟',
                         style: textTheme.bodySmall?.copyWith(
                           color: ColorPrimary.textGreyColor,
                         ),
