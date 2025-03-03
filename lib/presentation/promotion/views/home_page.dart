@@ -5,8 +5,7 @@ import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
 import 'package:divar_aviz/presentation/promotion/views/subViews/see_all_promotions_page.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/vertical_aviz_item_widget.dart';
-import '../widgets/horizontal_aviz_item_widget.dart';
+import '../widgets/promotion_item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -50,44 +49,40 @@ class _HomePageState extends State<HomePage> {
         title: 'صفحه اصلی',
       ),
       body: SafeArea(
-        child: _buildBody(context),
-      ),
-    );
-  }
-
-  CustomScrollView _buildBody(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        _buildHotestTitle(context),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 290,
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: mockData.length,
-                itemBuilder: (context, index) {
-                  return VerticalAvizItem(
-                    aviz: mockData[index],
-                  );
-                },
+        child: CustomScrollView(
+          slivers: [
+            _buildHotestTitle(context),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 287,
+                child: Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: mockData.length,
+                    itemBuilder: (context, index) {
+                      return VerticalPromotionItemWidget(
+                        promotion: mockData[index],
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
-          ),
+            _buildRecentTitle(context),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return HorizontalPromotionItemWidget(
+                    promotion: mockData[index],
+                  );
+                },
+                childCount: mockData.length,
+              ),
+            ),
+          ],
         ),
-        _buildRecentTitle(context),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return HorizontalAvizItem(
-                aviz: mockData[index],
-              );
-            },
-            childCount: mockData.length,
-          ),
-        )
-      ],
+      ),
     );
   }
 
@@ -109,13 +104,13 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Text(
                 'مشاهده همه',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: ColorPrimary.textGreyColor,
                     ),
               ),
             ),
             Text(
-              'آویزهای داغ',
+              'آگهی های داغ',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
@@ -142,13 +137,13 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Text(
                 'مشاهده همه',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: ColorPrimary.textGreyColor,
                     ),
               ),
             ),
             Text(
-              'آویزهای اخیر',
+              'آگهی های اخیر',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
