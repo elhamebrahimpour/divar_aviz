@@ -5,7 +5,7 @@ const String android = 'ANDROID';
 const String iOS = 'IOS';
 
 class Env {
-  static const String platform = android;
+  static const String platform = web;
 
   static const bool isProduction = false;
 }

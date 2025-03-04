@@ -3,6 +3,7 @@ import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/regex.dart';
+import 'package:divar_aviz/config/utils/responsive_helper.dart';
 import 'package:divar_aviz/presentation/app/widgets/buttons/custom_filled_button.dart';
 import 'package:divar_aviz/presentation/app/widgets/inputs/text_form_field_widget.dart';
 import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
@@ -29,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height / 10,
+              top: Responsive.getHeight(context) / 10,
             ),
             child: Form(
               key: _formKey,

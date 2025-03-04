@@ -1,3 +1,4 @@
+import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
 import 'package:divar_aviz/presentation/promotion/views/category_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,31 +19,33 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: _selectedBottomNavigationItem,
-        children: const [
-          ProfilePage(),
-          CategoryPage(),
-          SearchPage(),
-          HomePage(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xffF9FAFB),
-        elevation: 0,
-        currentIndex: _selectedBottomNavigationItem,
-        type: BottomNavigationBarType.fixed,
-        onTap: (int index) {
-          setState(() {
-            _selectedBottomNavigationItem = index;
-          });
-        },
-        selectedItemColor: ColorPrimary.mainColor,
-        selectedLabelStyle: Theme.of(context).textTheme.labelMedium,
-        unselectedItemColor: ColorPrimary.textGreyColor,
-        unselectedLabelStyle: Theme.of(context).textTheme.labelMedium,
-        items: _buildNavItems,
+    return ResponsiveContainer(
+      child: Scaffold(
+        body: IndexedStack(
+          index: _selectedBottomNavigationItem,
+          children: const [
+            ProfilePage(),
+            CategoryPage(),
+            SearchPage(),
+            HomePage(),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color(0xffF9FAFB),
+          elevation: 0,
+          currentIndex: _selectedBottomNavigationItem,
+          type: BottomNavigationBarType.fixed,
+          onTap: (int index) {
+            setState(() {
+              _selectedBottomNavigationItem = index;
+            });
+          },
+          selectedItemColor: ColorPrimary.mainColor,
+          selectedLabelStyle: Theme.of(context).textTheme.labelMedium,
+          unselectedItemColor: ColorPrimary.textGreyColor,
+          unselectedLabelStyle: Theme.of(context).textTheme.labelMedium,
+          items: _buildNavItems,
+        ),
       ),
     );
   }

@@ -17,7 +17,7 @@ class AppTheme {
       ),
       titleSmall: TextStyle(
         color: ColorPrimary.textBlackColor,
-        fontSize: 18,
+        fontSize: 16,
         fontFamily: 'SB',
       ),
       bodyLarge: TextStyle(

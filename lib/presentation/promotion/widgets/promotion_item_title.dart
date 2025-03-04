@@ -27,7 +27,7 @@ class PromotionItemTitle extends StatelessWidget {
         children: [
           Text(
             promotion.title,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.labelLarge,
           ),
           const SizedBox(
             height: Dimentions.six,
@@ -36,6 +36,8 @@ class PromotionItemTitle extends StatelessWidget {
             promotion.descryption,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: ColorNeutral.darkGrey,
+                  fontSize: 13,
+                  height: 1.2,
                 ),
             textAlign: textAlign,
           ),

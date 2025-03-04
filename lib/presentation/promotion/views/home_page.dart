@@ -1,4 +1,5 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
+import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
@@ -51,7 +52,14 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            _buildHotestTitle(context),
+            SliverToBoxAdapter(
+              child: SectionTitleWidget(
+                sectionName: 'آگهی های داغ',
+                onSeeAllClicked: () => context.pushNavigator(
+                  const SeeAllAvizPage(),
+                ),
+              ),
+            ),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 287,
@@ -69,7 +77,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            _buildRecentTitle(context),
+            SliverToBoxAdapter(
+              child: SectionTitleWidget(
+                sectionName: 'آگهی های اخیر',
+                onSeeAllClicked: () => context.pushNavigator(
+                  const SeeAllAvizPage(),
+                ),
+              ),
+            ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
@@ -85,69 +100,44 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
 
-  SliverPadding _buildHotestTitle(BuildContext context) {
-    return SliverPadding(
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width / 30,
-        right: MediaQuery.of(context).size.width / 30,
-        top: 20,
-        bottom: 12,
-      ),
-      sliver: SliverToBoxAdapter(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () => context.pushNavigator(
-                const SeeAllAvizPage(),
-              ),
-              child: Text(
-                'مشاهده همه',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: ColorPrimary.textGreyColor,
-                    ),
-              ),
-            ),
-            Text(
-              'آگهی های داغ',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+class SectionTitleWidget extends StatelessWidget {
+  final String? sectionName;
+  final Function? onSeeAllClicked;
 
-  SliverPadding _buildRecentTitle(BuildContext context) {
-    return SliverPadding(
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width / 30,
-        right: MediaQuery.of(context).size.width / 30,
-        top: 26,
-        bottom: 12,
+  const SectionTitleWidget({
+    super.key,
+    this.sectionName,
+    this.onSeeAllClicked,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: Dimentions.sixteen,
+        right: Dimentions.sixteen,
+        top: Dimentions.twenty,
+        bottom: Dimentions.egith,
       ),
-      sliver: SliverToBoxAdapter(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () => context.pushNavigator(
-                const SeeAllAvizPage(),
-              ),
-              child: Text(
-                'مشاهده همه',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: ColorPrimary.textGreyColor,
-                    ),
-              ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () => onSeeAllClicked?.call(),
+            child: Text(
+              'مشاهده همه',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: ColorNeutral.darkGrey,
+                  ),
             ),
-            Text(
-              'آگهی های اخیر',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ],
-        ),
+          ),
+          Text(
+            sectionName ?? 'بخش',
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+        ],
       ),
     );
   }
