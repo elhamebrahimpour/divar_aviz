@@ -6,6 +6,7 @@ class Dimentions {
   static const double twellve = 12;
   static const double fifteen = 15;
   static const double sixteen = 16;
+  static const double egithteen = 18;
   static const double twenty = 20;
   static const double twentyTwo = 22;
   static const double thirtyTwo = 32;

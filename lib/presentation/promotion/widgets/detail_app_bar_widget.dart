@@ -1,3 +1,4 @@
+import 'package:divar_aviz/config/constants/assets_route.dart';
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -15,15 +16,24 @@ class DetailAppBarWidget extends StatelessWidget
       centerTitle: true,
       title: Row(
         children: [
-          _buildActions(icon: 'icon_archive', onClicked: () {}),
+          _buildActions(
+            icon: 'icon_archive',
+            onClicked: () {},
+          ),
           const SizedBox(
             width: 12,
           ),
-          _buildActions(icon: 'icon_share', onClicked: () {}),
+          _buildActions(
+            icon: 'icon_share',
+            onClicked: () {},
+          ),
           const SizedBox(
             width: 12,
           ),
-          _buildActions(icon: 'icon_information', onClicked: () {}),
+          _buildActions(
+            icon: 'icon_information',
+            onClicked: () {},
+          ),
           const Spacer(),
           _buildActions(
             icon: 'arrow_right',
@@ -34,10 +44,16 @@ class DetailAppBarWidget extends StatelessWidget
     );
   }
 
-  GestureDetector _buildActions({required String icon, Function? onClicked}) =>
+  GestureDetector _buildActions({
+    required String icon,
+    Function? onClicked,
+  }) =>
       GestureDetector(
         onTap: () => onClicked?.call(),
-        child: Image.asset('assets/images/$icon.png'),
+        child: Image.asset(
+          getPng(icon),
+          color: ColorPrimary.black,
+        ),
       );
 
   @override

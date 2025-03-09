@@ -22,7 +22,7 @@ class VerticalPromotionItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.pushNavigator(
         PromotionItemDetailPage(
-          aviz: promotion,
+          promotion: promotion,
         ),
       ),
       child: Container(
@@ -86,7 +86,7 @@ class HorizontalPromotionItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.pushNavigator(
         PromotionItemDetailPage(
-          aviz: promotion,
+          promotion: promotion,
         ),
       ),
       child: Container(

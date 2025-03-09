@@ -3,12 +3,14 @@ class Promotion {
   String descryption;
   String image;
   String price;
+  String? dateTime;
 
   Promotion({
     required this.title,
     required this.descryption,
     required this.image,
     required this.price,
+    this.dateTime,
   });
 
   factory Promotion.fromJson(Map<String, dynamic> jsonObject) {
@@ -17,6 +19,7 @@ class Promotion {
       descryption: jsonObject['descryption'],
       image: jsonObject['image'],
       price: jsonObject['price'],
+      dateTime: jsonObject['dateTime'],
     );
   }
 
