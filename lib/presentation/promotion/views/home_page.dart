@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               child: SectionTitleWidget(
                 sectionName: 'آگهی های داغ',
                 onSeeAllClicked: () => context.pushNavigator(
-                  const SeeAllAvizPage(),
+                  const SeeAllPromotionsPage(),
                 ),
               ),
             ),
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
               child: SectionTitleWidget(
                 sectionName: 'آگهی های اخیر',
                 onSeeAllClicked: () => context.pushNavigator(
-                  const SeeAllAvizPage(),
+                  const SeeAllPromotionsPage(),
                 ),
               ),
             ),

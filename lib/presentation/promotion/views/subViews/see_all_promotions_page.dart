@@ -1,16 +1,17 @@
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/custom_app_bar.dart';
+import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
 import 'package:divar_aviz/presentation/promotion/widgets/promotion_item_widget.dart';
 import 'package:flutter/material.dart';
 
-class SeeAllAvizPage extends StatefulWidget {
-  const SeeAllAvizPage({super.key});
+class SeeAllPromotionsPage extends StatefulWidget {
+  const SeeAllPromotionsPage({super.key});
 
   @override
-  State<SeeAllAvizPage> createState() => _SeeAllAvizPageState();
+  State<SeeAllPromotionsPage> createState() => _SeeAllPromotionsPageState();
 }
 
-class _SeeAllAvizPageState extends State<SeeAllAvizPage> {
+class _SeeAllPromotionsPageState extends State<SeeAllPromotionsPage> {
   final List<Promotion> mockData = [
     Promotion(
       title: 'ویلا ۵۰۰ متری زیر قیمت',
@@ -28,12 +29,14 @@ class _SeeAllAvizPageState extends State<SeeAllAvizPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'همه آگهی ها',
-      ),
-      body: SafeArea(
-        child: _buildBody(context),
+    return ResponsiveContainer(
+      child: Scaffold(
+        appBar: const CustomAppBar(
+          title: 'آگهی‌های داغ',
+        ),
+        body: SafeArea(
+          child: _buildBody(context),
+        ),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:divar_aviz/data/promotion/model/promotion.dart';
 import 'package:divar_aviz/presentation/app/widgets/cached_image_widget.dart';
 import 'package:divar_aviz/presentation/app/widgets/category_label_widget.dart';
+import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
 import 'package:divar_aviz/presentation/promotion/widgets/promotion_detail_tabs_widget.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/detail_app_bar_widget.dart';
@@ -27,71 +28,73 @@ class _PromotionItemDetailPageState extends State<PromotionItemDetailPage> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      appBar: const DetailAppBarWidget(),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const SizedBox(
-              height: Dimentions.sixteen,
-            ),
-            CachedImageWidget(
-              imageUrl: widget.promotion.image,
-            ),
-            const SizedBox(
-              height: Dimentions.sixteen,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: Dimentions.twentyTwo),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    widget.promotion.dateTime ?? '۱۶ دقیقه پیش در گرگان',
-                    textDirection: TextDirection.rtl,
-                    style: textTheme.bodySmall?.copyWith(
-                      color: ColorPrimary.textGreyColor,
+    return ResponsiveContainer(
+      child: Scaffold(
+        appBar: const DetailAppBarWidget(),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              const SizedBox(
+                height: Dimentions.sixteen,
+              ),
+              CachedImageWidget(
+                imageUrl: widget.promotion.image,
+              ),
+              const SizedBox(
+                height: Dimentions.sixteen,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimentions.twentyTwo),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.promotion.dateTime ?? '۱۶ دقیقه پیش در گرگان',
+                      textDirection: TextDirection.rtl,
+                      style: textTheme.bodySmall?.copyWith(
+                        color: ColorPrimary.textGreyColor,
+                      ),
                     ),
-                  ),
-                  const CategoryLabelWidget(
-                    label: 'آپارتمان',
-                  ),
-                ],
+                    const CategoryLabelWidget(
+                      label: 'آپارتمان',
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: Dimentions.egithteen,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: Dimentions.sixteen),
-              child: Text(
-                widget.promotion.title,
-                textAlign: TextAlign.end,
-                style: textTheme.bodyMedium,
+              const SizedBox(
+                height: Dimentions.egithteen,
               ),
-            ),
-            const SizedBox(
-              height: Dimentions.egithteen,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: Dimentions.sixteen),
-              child: CustomPaint(
-                size: const Size(double.infinity, 20),
-                painter: DashedLineHorizontalPainter(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: Dimentions.sixteen),
+                child: Text(
+                  widget.promotion.title,
+                  textAlign: TextAlign.end,
+                  style: textTheme.bodyMedium,
+                ),
               ),
-            ),
-            _buildAlertConatiner(textTheme),
-            const SizedBox(
-              height: Dimentions.thirtyTwo,
-            ),
-            const Expanded(
-              child: PromotionDetailTabsWidget(),
-            ),
-          ],
+              const SizedBox(
+                height: Dimentions.egithteen,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: Dimentions.sixteen),
+                child: CustomPaint(
+                  size: const Size(double.infinity, 20),
+                  painter: DashedLineHorizontalPainter(),
+                ),
+              ),
+              _buildAlertConatiner(textTheme),
+              const SizedBox(
+                height: Dimentions.thirtyTwo,
+              ),
+              const Expanded(
+                child: PromotionDetailTabsWidget(),
+              ),
+            ],
+          ),
         ),
       ),
     );
