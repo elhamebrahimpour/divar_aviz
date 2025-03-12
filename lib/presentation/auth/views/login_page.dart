@@ -83,7 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                   CustomFilledButton(
                     title: 'مرحله بعد',
                     isLoading: false,
-                    icon: getPng('icon_arrow_left'),
+                    icon: getSvg('next_white'),
+                    isIconTransfrom: true,
                     onClicked: () => context.pushNavigator(
                       const LoginVerificationPage(),
                     ),

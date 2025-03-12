@@ -1,6 +1,9 @@
+import 'package:divar_aviz/config/constants/assets_route.dart';
 import 'package:divar_aviz/presentation/app/widgets/responsive_container.dart';
+import 'package:divar_aviz/presentation/promotion/views/add_promotion_page.dart';
 import 'package:divar_aviz/presentation/promotion/views/category_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../promotion/views/home_page.dart';
 import '../../../config/theme/theme_colors.dart';
@@ -15,7 +18,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedBottomNavigationItem = 3;
+  int _selectedBottomNavigationItem = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class _MainPageState extends State<MainPage> {
           children: const [
             ProfilePage(),
             CategoryPage(),
+            AddPromotionPage(),
             SearchPage(),
             HomePage(),
           ],
@@ -54,63 +58,38 @@ class _MainPageState extends State<MainPage> {
     return [
       BottomNavigationBarItem(
         label: 'پروفایل',
-        icon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/icon_profile.png'),
-        ),
-        activeIcon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/icon_profile_active.png',
-            color: ColorPrimary.mainColor,
-          ),
-        ),
+        icon: _getNavIcon('profile'),
+        activeIcon: _getNavIcon('profile_colored'),
+      ),
+      BottomNavigationBarItem(
+        label: 'دسته بندی',
+        icon: _getNavIcon('category'),
+        activeIcon: _getNavIcon('category_colored'),
       ),
       BottomNavigationBarItem(
         label: 'افزودن آگهی',
-        icon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/icon_add.png'),
-        ),
-        activeIcon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/icon_add_active.png',
-            color: ColorPrimary.mainColor,
-          ),
-        ),
+        icon: _getNavIcon('add'),
+        activeIcon: _getNavIcon('add_colored'),
       ),
       BottomNavigationBarItem(
         label: 'جستجو',
-        icon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset('assets/images/icon_search.png'),
-        ),
-        activeIcon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/icon_search_active.png',
-            color: ColorPrimary.mainColor,
-          ),
-        ),
+        icon: _getNavIcon('search'),
+        activeIcon: _getNavIcon('search_colored'),
       ),
       BottomNavigationBarItem(
         label: 'خانه',
-        icon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/icon_home.png',
-            scale: 2.6,
-          ),
-        ),
-        activeIcon: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/icon_home_active.png',
-            scale: 2.6,
-          ),
-        ),
+        icon: _getNavIcon('home'),
+        activeIcon: _getNavIcon('home_colored'),
       ),
     ];
+  }
+
+  Padding _getNavIcon(String name) {
+    return Padding(
+      padding: const EdgeInsets.all(6.0),
+      child: SvgPicture.asset(
+        getSvg(name),
+      ),
+    );
   }
 }

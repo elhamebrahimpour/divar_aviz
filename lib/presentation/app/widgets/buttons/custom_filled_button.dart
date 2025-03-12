@@ -1,11 +1,13 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/dimentions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomFilledButton extends StatelessWidget {
   final String title;
   final Color? titleColor;
   final String? icon;
+  final bool isIconTransfrom;
   final Color? color;
   final double? radius;
   final bool isLoading;
@@ -21,6 +23,7 @@ class CustomFilledButton extends StatelessWidget {
     required this.onClicked,
     this.titleColor,
     this.icon,
+    this.isIconTransfrom = false,
     this.color,
     this.radius,
     this.isEnable = true,
@@ -76,7 +79,12 @@ class CustomFilledButton extends StatelessWidget {
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('$icon'),
+                          Transform.flip(
+                            flipX: isIconTransfrom ? true : false,
+                            child: SvgPicture.asset(
+                              '$icon',
+                            ),
+                          ),
                           const SizedBox(
                             width: Dimentions.six,
                           ),

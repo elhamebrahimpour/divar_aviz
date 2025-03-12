@@ -1,7 +1,7 @@
 import 'package:divar_aviz/config/theme/theme_colors.dart';
 import 'package:divar_aviz/config/utils/ext_context.dart';
 import 'package:divar_aviz/config/utils/utilities.dart';
-import 'package:divar_aviz/presentation/promotion/views/subViews/add_promotion_page.dart';
+import 'package:divar_aviz/presentation/promotion/views/add_promotion_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/category_app_bar.dart';

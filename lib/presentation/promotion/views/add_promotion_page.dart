@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/category_app_bar.dart';
-import '../previews/add_aviz_view.dart';
+import '../widgets/category_app_bar.dart';
+import 'previews/add_aviz_view.dart';
 
 class AddPromotionPage extends StatefulWidget {
   const AddPromotionPage({super.key});
